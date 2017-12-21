@@ -4,4 +4,20 @@ public class ProductCategory {
 
     private String name;
     private int ID;
+    private static int nextId = 1;
+
+    ProductCategory() {
+        this.ID = nextId;
+        nextId++;
+    }
+
+    ProductCategory(String name) {
+        this.ID = nextId;
+        nextId++;
+        this.name = name;
+    }
+
+    public String getName() {
+        return this.name;
+    }
 }
