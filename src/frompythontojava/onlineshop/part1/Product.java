@@ -44,5 +44,11 @@ public class Product {
         }
         return matchingProducts;
     }
+
+    @Override
+    public String toString() {
+        return String.format("ID: %d, name: %s, defaultPrice: %f, productCategory: %s",
+                this.ID, this.name, this.defaultPrice, this.productCategory.getName());
+    }
     
 }
