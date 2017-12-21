@@ -11,4 +11,18 @@ public class Product {
     private int ID;
     private static ArrayList<Product> productList;
 
+    Product() {
+        this.ID = nextId;
+        nextId++;
+        productList.add(this);
+    }
+
+    Product(String name, Float defaultPrice, ProductCategory productCategory) {
+        this.name = name;
+        this.defaultPrice = defaultPrice;
+        this.productCategory = productCategory;
+        this.ID = nextId;
+        nextId++;
+        productList.add(this);
+    }
 }
