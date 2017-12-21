@@ -9,7 +9,7 @@ public class Product {
     private ProductCategory productCategory;
     private static int nextId = 1;
     private int ID;
-    private static ArrayList<Product> productList;
+    private static ArrayList<Product> productList = new ArrayList<Product>();
 
     Product() {
         this.ID = nextId;
@@ -25,4 +25,24 @@ public class Product {
         nextId++;
         productList.add(this);
     }
+
+    public ProductCategory getProductCategory() {
+        return productCategory;
+    }
+
+    public ArrayList<Product> getAllProducts() {
+        return productList;
+    }
+
+    public ArrayList<Product> getAllProductsBy(ProductCategory productCategory) {
+
+        ArrayList<Product> matchingProducts = new ArrayList<Product>();
+        for (Product product: productList) {
+            if (product.getProductCategory().equals(productCategory)) {
+                matchingProducts.add(product);
+            }
+        }
+        return matchingProducts;
+    }
+    
 }
