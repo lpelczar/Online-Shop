@@ -28,7 +28,7 @@ public class Basket {
         }
     }
 
-    public Iterator getIterator() {
+    private Iterator getIterator() {
         return iterator;
     }
 
@@ -37,11 +37,14 @@ public class Basket {
     }
 
     public boolean removeProduct(Product product) {
-        for (Iterator iterator = this.getIterator(); iterator.hasNext();) {
-            Product prod = (Product)iterator.next();
-            if (product == prod) {
+        boolean isRemoved = false;
+        while(iterator.hasNext()) {
+            Product prod = (Product) iterator.next();
+            if (prod == product) {
                 productList.remove(prod);
+                isRemoved = true;
             }
         }
+        return isRemoved;
     }
 }
