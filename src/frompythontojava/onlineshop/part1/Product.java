@@ -50,7 +50,7 @@ public class Product {
 
     public String toString() {
         return this.productCategory + String.format(" ID:%d,name:%s,defaultPrice:%.2f",
-                this.ID, this.name, this.defaultPrice);
+                                                    this.ID, this.name, this.defaultPrice);
     }
     
 }

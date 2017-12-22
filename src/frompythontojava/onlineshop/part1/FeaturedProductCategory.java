@@ -12,6 +12,14 @@ public class FeaturedProductCategory extends ProductCategory {
         this.expirationDate = expirationDate;
     }
 
+    public Date getExpirationDate() {
+        return expirationDate;
+    }
+
+    public void setExpirationDate(Date expirationDate) {
+        this.expirationDate = expirationDate;
+    }
+
     @Override
     public String toString() {
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
