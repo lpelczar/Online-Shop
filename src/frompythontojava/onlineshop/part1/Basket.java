@@ -28,4 +28,9 @@ public class Basket {
         }
     }
 
+    public Iterator getIterator() {
+        return iterator;
+    }
+
+    
 }
