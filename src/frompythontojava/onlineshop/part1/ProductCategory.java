@@ -3,7 +3,7 @@ package frompythontojava.onlineshop.part1;
 public class ProductCategory {
 
     private String name;
-    private int ID;
+    private final int ID;
     private static int nextId = 1;
 
     ProductCategory() {
