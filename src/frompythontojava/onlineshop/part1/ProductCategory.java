@@ -9,6 +9,7 @@ public class ProductCategory {
     private static int nextId = 1;
 
     ProductCategory() {
+        this.name = "None";
         this.ID = nextId;
         nextId++;
     }

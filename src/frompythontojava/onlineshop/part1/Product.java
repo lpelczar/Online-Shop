@@ -9,9 +9,12 @@ public class Product {
     private ProductCategory productCategory;
     private static int nextId = 1;
     private int ID;
-    private static ArrayList<Product> productList = new ArrayList<Product>();
+    private static ArrayList<Product> productList = new ArrayList<>();
 
     Product() {
+        this.name = "None";
+        this.defaultPrice = 0.0f;
+        this.productCategory = new ProductCategory();
         this.ID = nextId;
         nextId++;
         productList.add(this);
