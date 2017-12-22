@@ -18,8 +18,8 @@ public class ProductCategory {
         this.name = name;
     }
 
-    public String getName() {
-        return this.name;
+    public String toString() {
+        return String.format("ID: %d Category Name: %s", this.ID, this.name);
     }
 
 }

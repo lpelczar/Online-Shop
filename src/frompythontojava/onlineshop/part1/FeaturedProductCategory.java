@@ -10,4 +10,9 @@ public class FeaturedProductCategory extends ProductCategory {
         super(name);
         this.expirationDate = expirationDate;
     }
+
+    @Override
+    public String toString() {
+        return "FeaturedProductCategory" + super.toString() + "Expiration Date: " + expirationDate.toString();
+    }
 }
