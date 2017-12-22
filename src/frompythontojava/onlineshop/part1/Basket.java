@@ -35,4 +35,13 @@ public class Basket {
     public void addProduct(Product product) {
         productList.add(product);
     }
+
+    public boolean removeProduct(Product product) {
+        for (Iterator iterator = this.getIterator(); iterator.hasNext();) {
+            Product prod = (Product)iterator.next();
+            if (product == prod) {
+                productList.remove(prod);
+            }
+        }
+    }
 }
