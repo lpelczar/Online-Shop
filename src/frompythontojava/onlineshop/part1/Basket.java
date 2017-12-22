@@ -36,7 +36,7 @@ public class Basket {
         productList.add(product);
     }
 
-    public boolean removeProduct(Product product) {
+    public Boolean removeProduct(Product product) {
         return productList.remove(product);
     }
 }
