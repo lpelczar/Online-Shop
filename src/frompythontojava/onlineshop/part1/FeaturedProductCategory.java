@@ -23,6 +23,6 @@ public class FeaturedProductCategory extends ProductCategory {
     @Override
     public String toString() {
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-        return "FeaturedProductCategory:" + super.toString() + ",expirationDate:" + sdf.format(expirationDate) + " ";
+        return getClass().getSimpleName() + super.toString() + ",expirationDate:" + sdf.format(expirationDate);
     }
 }
