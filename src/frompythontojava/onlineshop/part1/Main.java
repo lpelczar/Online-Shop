@@ -1,6 +1,8 @@
 package frompythontojava.onlineshop.part1;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Main {
 
@@ -9,12 +11,16 @@ public class Main {
 	    Basket basket = new Basket();
 	    ProductCategory food = new ProductCategory("Food");
 	    ProductCategory tools = new ProductCategory("Tools");
+	    Date milkExpirationDate = new Date(2018,8,12);
+	    ProductCategory milk = new FeaturedProductCategory("Milk", milkExpirationDate);
 	    Product product1 = new Product("Pizza", 12.34f, food);
 	    Product product2 = new Product("Hammer", 18.34f, tools);
 	    Product product3 = new Product();
+        Product product4 = new Product("Poland Milk", 12.34f, milk);
 	    basket.addProduct(product1);
         basket.addProduct(product2);
         basket.addProduct(product3);
+        basket.addProduct(product4);
 	    basket.removeProduct(product1);
 
         for (Iterator iterator = basket.getIterator(); iterator.hasNext();) {
