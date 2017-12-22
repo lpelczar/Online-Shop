@@ -8,7 +8,7 @@ public class Product {
     private Float defaultPrice;
     private ProductCategory productCategory;
     private static int nextId = 1;
-    private int ID;
+    private final int ID;
     private static ArrayList<Product> productList = new ArrayList<>();
 
     Product() {
