@@ -29,6 +29,11 @@ public class Order implements Orderable {
     }
 
     public boolean pay() {
-
+        if (this.status.equals(checkedStatus)) {
+            this.status = payedStatus;
+            return true;
+        } else {
+            return false;
+        }
     }
 }
