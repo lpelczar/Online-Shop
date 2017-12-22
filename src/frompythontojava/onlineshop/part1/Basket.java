@@ -37,14 +37,6 @@ public class Basket {
     }
 
     public boolean removeProduct(Product product) {
-        boolean isRemoved = false;
-        while(iterator.hasNext()) {
-            Product prod = (Product) iterator.next();
-            if (prod == product) {
-                productList.remove(prod);
-                isRemoved = true;
-            }
-        }
-        return isRemoved;
+        return productList.remove(product);
     }
 }
