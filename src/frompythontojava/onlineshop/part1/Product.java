@@ -29,9 +29,30 @@ public class Product {
         productList.add(this);
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Float getDefaultPrice() {
+        return defaultPrice;
+    }
+
+    public void setDefaultPrice(Float defaultPrice) {
+        this.defaultPrice = defaultPrice;
+    }
+
     public ProductCategory getProductCategory() {
         return productCategory;
     }
+
+    public void setProductCategory(ProductCategory productCategory) {
+        this.productCategory = productCategory;
+    }
+
 
     public ArrayList<Product> getAllProducts() {
         return productList;
