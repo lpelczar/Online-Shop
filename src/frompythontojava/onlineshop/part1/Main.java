@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
+
 	    Basket basket = new Basket();
 	    ProductCategory food = new ProductCategory("Food");
 	    ProductCategory tools = new ProductCategory("Tools");
