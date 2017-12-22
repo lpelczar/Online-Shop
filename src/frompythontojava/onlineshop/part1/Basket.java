@@ -32,5 +32,7 @@ public class Basket {
         return iterator;
     }
 
-    
+    public void addProduct(Product product) {
+        productList.add(product);
+    }
 }
