@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Basket {
 
-    private ArrayList<Product> productList;
+    private ArrayList<Product> productList = new ArrayList<>();
     private Iterator iterator = new ProductIterator();
 
     private class ProductIterator implements Iterator {
@@ -28,7 +28,7 @@ public class Basket {
         }
     }
 
-    private Iterator getIterator() {
+    public Iterator getIterator() {
         return iterator;
     }
 
