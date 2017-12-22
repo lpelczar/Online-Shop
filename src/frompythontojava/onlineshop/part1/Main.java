@@ -6,8 +6,10 @@ public class Main {
 
     public static void main(String[] args) {
 	    Basket basket = new Basket();
-	    Product product1 = new Product("Pizza", 12.34f, new ProductCategory("Food"));
-	    Product product2 = new Product("Hammer", 18.34f, new ProductCategory("Tools"));
+	    ProductCategory food = new ProductCategory("Food");
+	    ProductCategory tools = new ProductCategory("Tools");
+	    Product product1 = new Product("Pizza", 12.34f, food);
+	    Product product2 = new Product("Hammer", 18.34f, tools);
 	    Product product3 = new Product();
 	    basket.addProduct(product1);
         basket.addProduct(product2);
@@ -18,7 +20,19 @@ public class Main {
 	        System.out.println(iterator.next());
         }
 
-        ArrayList<Product> products = product1.getAllProducts();
+        System.out.println("");
+
+        ArrayList<Product> allProducts = product1.getAllProducts();
+        for (Product p : allProducts) {
+            System.out.println(p);
+        }
+
+        System.out.println("");
+
+        ArrayList<Product> toolsProducts = product1.getAllProductsBy(food);
+        for (Product p : toolsProducts) {
+            System.out.println(p);
+        }
 
 
     }
