@@ -11,12 +11,12 @@ public class Main {
 	    Basket basket = new Basket();
 	    ProductCategory food = new ProductCategory("Food");
 	    ProductCategory tools = new ProductCategory("Tools");
-	    Date milkExpirationDate = new Date(2018,8,12);
+	    Date milkExpirationDate = new Date();
 	    ProductCategory milk = new FeaturedProductCategory("Milk", milkExpirationDate);
 	    Product product1 = new Product("Pizza", 12.34f, food);
 	    Product product2 = new Product("Hammer", 18.34f, tools);
 	    Product product3 = new Product();
-        Product product4 = new Product("Poland Milk", 12.34f, milk);
+        Product product4 = new Product("GoodMilk", 12.34f, milk);
 	    basket.addProduct(product1);
         basket.addProduct(product2);
         basket.addProduct(product3);

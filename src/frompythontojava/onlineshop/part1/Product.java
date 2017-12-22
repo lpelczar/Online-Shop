@@ -49,8 +49,8 @@ public class Product {
     }
 
     public String toString() {
-        return String.format("ID: %d, name: %s, defaultPrice: %f, productCategory: %s",
-                this.ID, this.name, this.defaultPrice, this.productCategory.getName());
+        return this.productCategory + String.format(" ID:%d,name:%s,defaultPrice:%.2f",
+                this.ID, this.name, this.defaultPrice);
     }
     
 }

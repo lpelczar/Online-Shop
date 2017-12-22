@@ -19,7 +19,7 @@ public class ProductCategory {
     }
 
     public String toString() {
-        return String.format("ID: %d Category Name: %s", this.ID, this.name);
+        return String.format("ID:%d,name:%s", this.ID, this.name);
     }
 
 }

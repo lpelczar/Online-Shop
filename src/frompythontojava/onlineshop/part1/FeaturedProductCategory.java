@@ -1,5 +1,6 @@
 package frompythontojava.onlineshop.part1;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class FeaturedProductCategory extends ProductCategory {
@@ -13,6 +14,7 @@ public class FeaturedProductCategory extends ProductCategory {
 
     @Override
     public String toString() {
-        return "FeaturedProductCategory" + super.toString() + "Expiration Date: " + expirationDate.toString();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        return "FeaturedProductCategory:" + super.toString() + ",expirationDate:" + sdf.format(expirationDate) + " ";
     }
 }
