@@ -1,19 +1,21 @@
 package frompythontojava.onlineshop.part3;
 
+import frompythontojava.onlineshop.part1.Iterator;
 import frompythontojava.onlineshop.part1.Product;
 
 import java.util.ArrayList;
 
 public class ShopView {
 
-    public void displayMenu(ArrayList<Product> productList) {
+    public void displayMenu(Iterator basketIterator) {
 
         System.out.println("Online shop v.1.3\n");
         System.out.println("Basket: ");
-        if (productList.isEmpty()) {
+        if (!basketIterator.hasNext()) {
             System.out.println("Your basket is empty!");
         } else {
-            for (Product p : productList) {
+            while (basketIterator.hasNext()) {
+                Product p = (Product) basketIterator.next();
                 System.out.println(p);
             }
         }
