@@ -1,8 +1,26 @@
 package frompythontojava.onlineshop.part3;
 
+import frompythontojava.onlineshop.part1.Product;
+
+import java.util.ArrayList;
+
 public class ShopView {
 
-    public void displayOptions(){
+    public void displayMenu(ArrayList<Product> productList) {
+
+        System.out.println("Online shop v.1.3\n");
+        System.out.println("Basket: ");
+        if (productList.isEmpty()) {
+            System.out.println("Your basket is empty!");
+        } else {
+            for (Product p : productList) {
+                System.out.println(p);
+            }
+        }
+    }
+
+    public void displayOptions() {
+
         System.out.println("What do you want to do?\n" +
                            "1. Create new product\n" +
                            "2. Create new category\n" +
