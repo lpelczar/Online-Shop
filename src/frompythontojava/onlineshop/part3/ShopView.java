@@ -19,6 +19,7 @@ public class ShopView {
                 System.out.println(p);
             }
         }
+        displayOptions();
     }
 
     public void displayOptions() {
