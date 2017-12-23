@@ -18,7 +18,12 @@ public class ShopController {
 
         while (!shouldExit) {
             view.displayMenu(this.basket.getIterator());
-            shouldExit = true;
+            shouldExit = handleUserInput();
         }
+    }
+
+    public boolean handleUserInput() {
+        String userInput = view.getUserInput();
+        
     }
 }

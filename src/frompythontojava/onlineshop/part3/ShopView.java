@@ -3,7 +3,7 @@ package frompythontojava.onlineshop.part3;
 import frompythontojava.onlineshop.part1.Iterator;
 import frompythontojava.onlineshop.part1.Product;
 
-import java.util.ArrayList;
+import java.util.Scanner;
 
 public class ShopView {
 
@@ -22,9 +22,9 @@ public class ShopView {
         displayOptions();
     }
 
-    public void displayOptions() {
+    private void displayOptions() {
 
-        System.out.println("What do you want to do?\n" +
+        System.out.println("\nWhat do you want to do?\n" +
                            "1. Create new product\n" +
                            "2. Create new category\n" +
                            "3. Add product to basket\n" +
@@ -35,5 +35,13 @@ public class ShopView {
                            "8. Check availability of specific product\n" +
                            "9. Pay for the order\n" +
                            "0. Exit");
+    }
+
+    public String getUserInput() {
+        System.out.print("Choose option: ");
+        Scanner scanner = new Scanner(System.in);
+        String userInput = scanner.nextLine();
+        scanner.close();
+        return userInput;
     }
 }
