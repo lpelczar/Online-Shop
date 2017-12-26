@@ -1,6 +1,7 @@
 package frompythontojava.onlineshop.part3;
 
 import frompythontojava.onlineshop.part1.Basket;
+import frompythontojava.onlineshop.part1.Product;
 
 public class ShopController {
 
@@ -18,12 +19,16 @@ public class ShopController {
 
         while (!shouldExit) {
             view.displayMenu(this.basket.getIterator());
-            shouldExit = handleUserInput();
+            String userInput = view.getUserInput();
+            if (userInput.equals("1")) {
+                createNewProduct();
+            } else if (userInput.equals("2")) {
+                createNewCategory();
+            } else if (userInput.equals("0")) {
+                shouldExit = true;
+            } else {
+                view.displayWrongOptionMessage();
+            }
         }
-    }
-
-    public boolean handleUserInput() {
-        String userInput = view.getUserInput();
-        
     }
 }

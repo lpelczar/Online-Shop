@@ -44,4 +44,8 @@ public class ShopView {
         scanner.close();
         return userInput;
     }
+
+    public void displayWrongOptionMessage() {
+        System.out.println("Wrong option!");
+    }
 }
