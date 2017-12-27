@@ -6,7 +6,6 @@ public class ShopController {
 
     private Basket basket;
     private ShopView view;
-    private Product product;
     private CategoryCreator categoryCreator;
 
 

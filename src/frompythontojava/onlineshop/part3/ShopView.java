@@ -58,6 +58,16 @@ public class ShopView {
         return getStringInput();
     }
 
+    public String getProductNameInput() {
+        System.out.print("Enter product name: ");
+        return getStringInput();
+    }
+
+    public String getPriceInput() {
+        System.out.print("Enter price of the product in format (X.XX): ");
+        return getStringInput();
+    }
+
     public String getIsFeaturedCategoryInput() {
         System.out.print("Do you want to add expiration date? (y or n) ");
         return getStringInput();
