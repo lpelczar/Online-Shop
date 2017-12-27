@@ -13,4 +13,18 @@ public class CategoriesContainer {
     public ArrayList<ProductCategory> getCategories() {
         return categories;
     }
+
+    public void addCategory(ProductCategory category) {
+        this.categories.add(category);
+    }
+
+    public boolean containsProductCategoryWithName(String name) {
+        for (ProductCategory category: this.categories) {
+            if (category.getClass().getSimpleName().equals("ProductCategory")
+                    && category.getName().equals(name)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

@@ -6,11 +6,11 @@ public class ProductCategory {
     private final int ID;
     private static int nextId = 1;
 
-    ProductCategory() {
+    public ProductCategory() {
         this("None");
     }
 
-    ProductCategory(String name) {
+    public ProductCategory(String name) {
         this.ID = nextId;
         nextId++;
         this.name = name;

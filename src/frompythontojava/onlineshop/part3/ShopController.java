@@ -2,7 +2,6 @@ package frompythontojava.onlineshop.part3;
 
 import frompythontojava.onlineshop.part1.*;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ShopController {
@@ -44,6 +43,10 @@ public class ShopController {
         String name = getCategoryName();
         boolean isFeaturedCategory = getIsFeaturedCategory();
         if (!isFeaturedCategory) {
+            if (!this.categoriesContainer.containsProductCategoryWithName(name)) {
+                this.categoriesContainer.addCategory(new ProductCategory(name));
+                view.displayCategoryAddedMessage();
+            }
 
         }
 

@@ -72,4 +72,8 @@ public class ShopView {
             System.out.println(category);
         }
     }
+
+    public void displayCategoryAddedMessage() {
+        System.out.println("Category has been added to list!");
+    }
 }

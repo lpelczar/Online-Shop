@@ -7,7 +7,7 @@ public class FeaturedProductCategory extends ProductCategory {
 
     private Date expirationDate;
 
-    FeaturedProductCategory(String name, Date expirationDate) {
+    public FeaturedProductCategory(String name, Date expirationDate) {
         super(name);
         this.expirationDate = expirationDate;
     }

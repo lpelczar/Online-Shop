@@ -11,11 +11,11 @@ public class Product {
     private final int ID;
     private static ArrayList<Product> productList = new ArrayList<>();
 
-    Product() {
+    public Product() {
         this("None", 0.0f, new ProductCategory());
     }
 
-    Product(String name, Float defaultPrice, ProductCategory productCategory) {
+    public Product(String name, Float defaultPrice, ProductCategory productCategory) {
         this.name = name;
         this.defaultPrice = defaultPrice;
         this.productCategory = productCategory;
