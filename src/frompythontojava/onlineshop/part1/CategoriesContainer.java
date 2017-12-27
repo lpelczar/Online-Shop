@@ -9,4 +9,8 @@ public class CategoriesContainer {
     public CategoriesContainer() {
         this.categories = new ArrayList<>();
     }
+
+    public ArrayList<ProductCategory> getCategories() {
+        return categories;
+    }
 }

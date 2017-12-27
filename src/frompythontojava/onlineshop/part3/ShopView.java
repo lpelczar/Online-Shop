@@ -2,7 +2,9 @@ package frompythontojava.onlineshop.part3;
 
 import frompythontojava.onlineshop.part1.Iterator;
 import frompythontojava.onlineshop.part1.Product;
+import frompythontojava.onlineshop.part1.ProductCategory;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ShopView {
@@ -61,5 +63,13 @@ public class ShopView {
     public String getIsFeaturedCategoryInput() {
         System.out.print("Do you want to add expiration date? (y or n) ");
         return getStringInput();
+    }
+
+    public void displayAllCategories(ArrayList<ProductCategory> categories) {
+
+        System.out.println("Categories: ");
+        for (ProductCategory category: categories) {
+            System.out.println(category);
+        }
     }
 }

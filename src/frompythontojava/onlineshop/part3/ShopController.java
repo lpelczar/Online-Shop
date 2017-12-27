@@ -1,6 +1,8 @@
 package frompythontojava.onlineshop.part3;
 
 import frompythontojava.onlineshop.part1.*;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ShopController {
@@ -41,7 +43,7 @@ public class ShopController {
 
         String name = getCategoryName();
         boolean isFeaturedCategory = getIsFeaturedCategory();
-        if (isFeaturedCategory) {
+        if (!isFeaturedCategory) {
 
         }
 
@@ -76,5 +78,10 @@ public class ShopController {
             }
         }
         return (userInput.equals(CORRECT_OPTIONS[0]));
+    }
+
+    private void showAllCategories() {
+
+        view.displayAllCategories(this.categoriesContainer.getCategories());
     }
 }
