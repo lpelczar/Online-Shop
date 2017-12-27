@@ -50,8 +50,7 @@ public class ShopView {
 
     private String getStringInput() {
         Scanner scanner = new Scanner(System.in);
-        String userInput = scanner.nextLine();
-        return userInput;
+        return scanner.nextLine();
     }
 
     public String getCategoryNameInput() {
@@ -75,13 +74,23 @@ public class ShopView {
                 System.out.println(category);
             }
         }
-        System.out.print("Press any key to continue.");
-        Scanner scanner = new Scanner(System.in);
-        scanner.nextLine();
+        displayPressAnyKeyToContinueMessage();
     }
 
     public void displayCategoryAddedMessage() {
         System.out.println("Category has been added to list!");
+        displayPressAnyKeyToContinueMessage();
+    }
+
+    public void displayCategoryAlreadyExistsMessage() {
+        System.out.println("Category already exists in the list!");
+        displayPressAnyKeyToContinueMessage();
+    }
+
+    private void displayPressAnyKeyToContinueMessage() {
+        System.out.print("\nPress any key to continue.");
+        Scanner scanner = new Scanner(System.in);
+        scanner.nextLine();
     }
 
     private static void clearConsole() {

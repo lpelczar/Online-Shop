@@ -21,7 +21,7 @@ public class CategoriesContainer {
     public boolean containsProductCategoryWithName(String name) {
         for (ProductCategory category: this.categories) {
             if (category.getClass().getSimpleName().equals("ProductCategory")
-                    && category.getName().equals(name)) {
+                    && category.getName().toLowerCase().equals(name.toLowerCase())) {
                 return true;
             }
         }

@@ -47,6 +47,8 @@ public class ShopController {
             if (!this.categoriesContainer.containsProductCategoryWithName(name)) {
                 this.categoriesContainer.addCategory(new ProductCategory(name));
                 view.displayCategoryAddedMessage();
+            } else {
+                view.displayCategoryAlreadyExistsMessage();
             }
 
         }
