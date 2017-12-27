@@ -51,7 +51,6 @@ public class ShopView {
     private String getStringInput() {
         Scanner scanner = new Scanner(System.in);
         String userInput = scanner.nextLine();
-        scanner.close();
         return userInput;
     }
 
@@ -67,13 +66,26 @@ public class ShopView {
 
     public void displayAllCategories(ArrayList<ProductCategory> categories) {
 
+        clearConsole();
         System.out.println("Categories: ");
-        for (ProductCategory category: categories) {
-            System.out.println(category);
+        if (categories.isEmpty()) {
+            System.out.println("List is empty!");
+        } else {
+            for (ProductCategory category : categories) {
+                System.out.println(category);
+            }
         }
+        System.out.print("Press any key to continue.");
+        Scanner scanner = new Scanner(System.in);
+        scanner.nextLine();
     }
 
     public void displayCategoryAddedMessage() {
         System.out.println("Category has been added to list!");
+    }
+
+    private static void clearConsole() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 }

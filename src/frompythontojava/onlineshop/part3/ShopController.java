@@ -22,10 +22,11 @@ public class ShopController {
         boolean shouldExit = false;
 
         while (!shouldExit) {
+            clearConsole();
             view.displayMenu(this.basket.getIterator());
             String userInput = view.getUserInput();
             if (userInput.equals("1")) {
-                createNewProduct();
+                //createNewProduct();
             } else if (userInput.equals("2")) {
                 createNewCategory();
             } else if (userInput.equals("7")) {
@@ -86,5 +87,10 @@ public class ShopController {
     private void showAllCategories() {
 
         view.displayAllCategories(this.categoriesContainer.getCategories());
+    }
+
+    private static void clearConsole() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 }
