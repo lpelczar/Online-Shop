@@ -7,12 +7,14 @@ public class ShopController {
     private Basket basket;
     private ShopView view;
     private CategoryCreator categoryCreator;
+    private ProductCreator productCreator;
 
 
     ShopController() {
         this.basket = new Basket();
         this.view = new ShopView();
         this.categoryCreator = new CategoryCreator();
+        this.productCreator = new ProductCreator();
     }
 
     public void run(){
@@ -22,16 +24,21 @@ public class ShopController {
             clearConsole();
             view.displayMenu(this.basket.getIterator());
             String userInput = view.getUserInput();
-            if (userInput.equals("1")) {
-                //createNewProduct();
-            } else if (userInput.equals("2")) {
-                this.categoryCreator.createNewCategory();
-            } else if (userInput.equals("7")) {
-                view.displayAllCategories(this.categoryCreator.getAllCategories());
-            } else if (userInput.equals("0")) {
-                shouldExit = true;
-            } else {
-                view.displayWrongInputMessage();
+            switch (userInput) {
+                case "1":
+                    this.productCreator.createNewProduct();
+                    break;
+                case "2":
+                    this.categoryCreator.createNewCategory();
+                    break;
+                case "7":
+                    view.displayAllCategories(this.categoryCreator.getAllCategories());
+                    break;
+                case "0":
+                    shouldExit = true;
+                    break;
+                default:
+                    view.displayWrongInputMessage();
             }
         }
     }
