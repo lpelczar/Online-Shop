@@ -46,7 +46,7 @@ public class ShopController {
         String name = getCategoryName();
         boolean isFeaturedCategory = getIsFeaturedCategory();
         if (!isFeaturedCategory) {
-            if (!this.categoriesContainer.containsProductCategoryWithName(name)) {
+            if (!this.categoriesContainer.containsProductCategory(name)) {
                 this.categoriesContainer.addCategory(new ProductCategory(name));
                 view.displayCategoryAddedMessage();
             } else {
@@ -54,7 +54,12 @@ public class ShopController {
             }
         } else {
             Date expirationDate = getExpirationDate();
-            this.categoriesContainer.addCategory(new FeaturedProductCategory(name, expirationDate));
+            if (!this.categoriesContainer.containsFeaturedProductCategory(name, expirationDate)) {
+                this.categoriesContainer.addCategory(new FeaturedProductCategory(name, expirationDate));
+                view.displayCategoryAddedMessage();
+            } else {
+                view.displayCategoryAlreadyExistsMessage();
+            }
         }
 
     }
