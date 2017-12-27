@@ -5,10 +5,13 @@ import java.util.Date;
 
 public class CategoriesContainer {
 
-    private ArrayList<ProductCategory> categories;
+    private static final CategoriesContainer instance = new CategoriesContainer();
+    private ArrayList<ProductCategory> categories = new ArrayList<>();
 
-    public CategoriesContainer() {
-        this.categories = new ArrayList<>();
+    private CategoriesContainer() {}
+
+    public static CategoriesContainer getInstance(){
+        return instance;
     }
 
     public ArrayList<ProductCategory> getCategories() {
