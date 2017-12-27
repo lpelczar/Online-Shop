@@ -1,7 +1,5 @@
 package frompythontojava.onlineshop.part3;
 
-import jdk.nashorn.internal.runtime.ParserException;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;

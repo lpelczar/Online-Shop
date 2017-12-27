@@ -2,7 +2,9 @@ package frompythontojava.onlineshop.part3;
 
 import frompythontojava.onlineshop.part1.*;
 
+import java.text.ParseException;
 import java.util.Arrays;
+import java.util.Date;
 
 public class ShopController {
 
@@ -50,7 +52,9 @@ public class ShopController {
             } else {
                 view.displayCategoryAlreadyExistsMessage();
             }
-
+        } else {
+            Date expirationDate = getExpirationDate();
+            this.categoriesContainer.addCategory(new FeaturedProductCategory(name, expirationDate));
         }
 
     }
@@ -84,6 +88,23 @@ public class ShopController {
             }
         }
         return (userInput.equals(CORRECT_OPTIONS[0]));
+    }
+
+    private Date getExpirationDate() {
+
+        boolean isDateCorrect = false;
+        Date expirationDate = null;
+
+        while(!isDateCorrect) {
+            String dateString = view.getDateInput();
+            try {
+                expirationDate = DateValidator.parseDate(dateString, "dd-MM-yyyy");
+                isDateCorrect = true;
+            } catch (ParseException e) {
+                view.displayWrongInputMessage();
+            }
+        }
+        return expirationDate;
     }
 
     private void showAllCategories() {

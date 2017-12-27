@@ -93,6 +93,11 @@ public class ShopView {
         scanner.nextLine();
     }
 
+    public String getDateInput() {
+        System.out.print("Enter date in the following format -> day-month-year: ");
+        return getStringInput();
+    }
+
     private static void clearConsole() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
