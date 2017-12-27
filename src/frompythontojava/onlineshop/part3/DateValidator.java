@@ -6,7 +6,9 @@ import java.util.Date;
 
 public class DateValidator {
 
-    public static Date parseDate(String dateToValidate, String dateFormat) throws ParseException{
+    DateValidator() {}
+
+    public Date parseDate(String dateToValidate, String dateFormat) throws ParseException{
 
         Date date;
 

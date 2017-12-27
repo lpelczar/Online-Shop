@@ -12,12 +12,14 @@ public class ShopController {
     private ShopView view;
     private Product product;
     private CategoriesContainer categoriesContainer;
+    private DateValidator dateValidator;
 
 
     ShopController() {
         this.basket = new Basket();
         this.view = new ShopView();
         this.categoriesContainer = new CategoriesContainer();
+        this.dateValidator = new DateValidator();
     }
 
     public void run(){
@@ -103,7 +105,7 @@ public class ShopController {
         while(!isDateCorrect) {
             String dateString = view.getDateInput();
             try {
-                expirationDate = DateValidator.parseDate(dateString, "dd-MM-yyyy");
+                expirationDate = this.dateValidator.parseDate(dateString, "dd-MM-yyyy");
                 isDateCorrect = true;
             } catch (ParseException e) {
                 view.displayWrongInputMessage();
