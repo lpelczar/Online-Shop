@@ -6,7 +6,7 @@ public class CategoriesContainer {
 
     private ArrayList<ProductCategory> categories;
 
-    CategoriesContainer() {
+    public CategoriesContainer() {
         this.categories = new ArrayList<>();
     }
 }

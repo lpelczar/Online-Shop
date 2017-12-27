@@ -39,13 +39,27 @@ public class ShopView {
 
     public String getUserInput() {
         System.out.print("Choose option: ");
+        return getStringInput();
+    }
+
+    public void displayWrongInputMessage() {
+        System.out.println("Wrong input!");
+    }
+
+    private String getStringInput() {
         Scanner scanner = new Scanner(System.in);
         String userInput = scanner.nextLine();
         scanner.close();
         return userInput;
     }
 
-    public void displayWrongOptionMessage() {
-        System.out.println("Wrong option!");
+    public String getCategoryNameInput() {
+        System.out.print("Enter category name: ");
+        return getStringInput();
+    }
+
+    public String getIsFeaturedCategoryInput() {
+        System.out.print("Do you want to add expiration date? (y or n) ");
+        return getStringInput();
     }
 }
