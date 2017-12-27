@@ -46,8 +46,29 @@ public class CategoriesContainer {
         ArrayList<FeaturedProductCategory> featuredCategories = new ArrayList<>();
         for(ProductCategory pc : this.categories) {
             if(pc instanceof FeaturedProductCategory)
-                featuredCategories.add((FeaturedProductCategory)pc);
+                featuredCategories.add((FeaturedProductCategory) pc);
         }
         return featuredCategories;
+    }
+
+    public boolean containsCategoryWithId(int id) {
+
+        for (ProductCategory category : this.categories) {
+            if (category.getID() == id) {
+                return true;
+            }
+        }
+        return  false;
+    }
+
+    public ProductCategory getCategoryById(int id) {
+
+        ProductCategory category = null;
+        for (ProductCategory cat : this.categories) {
+            if (cat.getID() == id) {
+                category = cat;
+            }
+        }
+        return category;
     }
 }
