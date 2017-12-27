@@ -1,15 +1,18 @@
 package frompythontojava.onlineshop.part3;
 
-import frompythontojava.onlineshop.part1.Product;
+import frompythontojava.onlineshop.part1.*;
+
 
 public class ProductCreator {
 
     private Product product;
     private CategoryCreator categoryCreator;
+    private CategoriesContainer categoriesContainer;
     private ShopView view;
 
     ProductCreator() {
         this.categoryCreator = new CategoryCreator();
+        this.categoriesContainer = CategoriesContainer.getInstance();
         this.view = new ShopView();
     }
 
@@ -17,9 +20,12 @@ public class ProductCreator {
 
         String name = getProductName();
         Float defaultPrice = getPrice();
+        ProductCategory category = getProductCategory();
 
         if (this.product == null) {
-
+            this.product = new Product(name, defaultPrice, category);
+        } else {
+            new Product(name, defaultPrice, category);
         }
     }
 
@@ -52,5 +58,50 @@ public class ProductCreator {
             }
         }
         return price;
+    }
+
+    private ProductCategory getProductCategory() {
+
+        ProductCategory category = null;
+
+        if (this.categoryCreator.getAllCategories().isEmpty()) {
+            view.displayEmptyCategoriesListMessage();
+            this.categoryCreator.createNewCategory();
+        } else {
+            category = handleChoosingCategoryOrCreatingNewOne();
+        }
+        return category;
+    }
+
+    private ProductCategory handleChoosingCategoryOrCreatingNewOne() {
+
+        String addNewCategoryInput = "a";
+        boolean isCorrectInput = false;
+        ProductCategory category = null;
+        int id = 0;
+
+        view.displayAllCategories(this.categoryCreator.getAllCategories(), false);
+        while (!isCorrectInput) {
+            String userInput = view.getCreatingCategoryInput();
+            if (userInput.equals(addNewCategoryInput)) {
+                this.categoryCreator.createNewCategory();
+                isCorrectInput = true;
+            } else {
+                try {
+                    id = Integer.parseInt(userInput);
+                } catch (NumberFormatException e) {
+                    view.displayWrongInputMessage();
+                    continue;
+                }
+                if (this.categoriesContainer.containsCategoryWithId(id)) {
+                    category = this.categoriesContainer.getCategoryById(id);
+                    view.displayProductAddedMessage();
+                    isCorrectInput = true;
+                } else {
+                    view.displayWrongInputMessage();
+                }
+            }
+        }
+        return category;
     }
 }

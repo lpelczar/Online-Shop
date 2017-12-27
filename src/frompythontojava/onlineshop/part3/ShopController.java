@@ -32,7 +32,7 @@ public class ShopController {
                     this.categoryCreator.createNewCategory();
                     break;
                 case "7":
-                    view.displayAllCategories(this.categoryCreator.getAllCategories());
+                    view.displayAllCategories(this.categoryCreator.getAllCategories(), true);
                     break;
                 case "0":
                     shouldExit = true;

@@ -73,7 +73,11 @@ public class ShopView {
         return getStringInput();
     }
 
-    public void displayAllCategories(ArrayList<ProductCategory> categories) {
+    public void displayEmptyCategoriesListMessage() {
+        System.out.println("List of categories is empty! You need to create new one!");
+    }
+
+    public void displayAllCategories(ArrayList<ProductCategory> categories, boolean getInput) {
 
         clearConsole();
         System.out.println("Categories: ");
@@ -84,11 +88,18 @@ public class ShopView {
                 System.out.println(category);
             }
         }
-        displayPressAnyKeyToContinueMessage();
+        if (getInput) {
+            displayPressAnyKeyToContinueMessage();
+        }
     }
 
     public void displayCategoryAddedMessage() {
         System.out.println("Category has been added to list!");
+        displayPressAnyKeyToContinueMessage();
+    }
+
+    public void displayProductAddedMessage() {
+        System.out.println("Product has been added to list!");
         displayPressAnyKeyToContinueMessage();
     }
 
@@ -105,6 +116,11 @@ public class ShopView {
 
     public String getDateInput() {
         System.out.print("Enter date in the following format -> day-month-year: ");
+        return getStringInput();
+    }
+
+    public String getCreatingCategoryInput() {
+        System.out.print("\nEnter ID to choose category or \"a\" to create new one: ");
         return getStringInput();
     }
 
