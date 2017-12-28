@@ -37,7 +37,7 @@ public class ProductCreator {
         }
     }
 
-    private String getProductName() {
+    protected String getProductName() {
 
         int maxNameLength = 15;
         String name = "";
@@ -156,5 +156,16 @@ public class ProductCreator {
             }
         }
         return category;
+    }
+
+    public boolean checkAvailabilityOfProductWithName(String name) {
+
+        boolean isAvailable;
+        if (this.product == null) {
+            isAvailable = false;
+        } else {
+            isAvailable = this.product.containsProductWithName(name);
+        }
+        return isAvailable;
     }
 }

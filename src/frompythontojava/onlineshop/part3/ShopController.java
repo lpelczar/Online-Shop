@@ -43,6 +43,9 @@ public class ShopController {
                 case "7":
                     view.displayAllCategories(this.categoryCreator.getAllCategories(), true);
                     break;
+                case "8":
+                    checkAvailabilityOfSpecificProduct();
+                    break;
                 case "0":
                     shouldExit = true;
                     break;
@@ -65,6 +68,17 @@ public class ShopController {
             view.displayAllProducts(productsFromCategory, true);
         } else {
             view.displayAllCategories(this.categoryCreator.getAllCategories(), true);
+        }
+    }
+
+    private void checkAvailabilityOfSpecificProduct() {
+
+        String name = this.productCreator.getProductName();
+        boolean isAvailable = this.productCreator.checkAvailabilityOfProductWithName(name);
+        if (isAvailable) {
+            view.displayProductAvailableMessage(name);
+        } else {
+            view.displayProductNotAvailableMessage(name);
         }
     }
 

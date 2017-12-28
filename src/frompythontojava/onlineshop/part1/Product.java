@@ -75,6 +75,16 @@ public class Product {
         return false;
     }
 
+    public boolean containsProductWithName(String name) {
+
+        for (Product product: productList) {
+            if (product.getName().equals(name)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public String toString() {
         return this.productCategory + String.format(" ID:%d,name:%s,defaultPrice:%.2f",
                                                     this.ID, this.name, this.defaultPrice);
