@@ -24,8 +24,14 @@ public class ProductCreator {
 
         if (this.product == null) {
             this.product = new Product(name, defaultPrice, category);
+            view.displayProductAddedMessage();
         } else {
-            new Product(name, defaultPrice, category);
+            if (this.product.containsProductWith(name, defaultPrice, category)) {
+                view.displayProductAlreadyExistsMessage();
+            } else {
+                new Product(name, defaultPrice, category);
+                view.displayProductAddedMessage();
+            }
         }
     }
 
@@ -78,7 +84,7 @@ public class ProductCreator {
         String addNewCategoryInput = "a";
         boolean isCorrectInput = false;
         ProductCategory category = null;
-        int id = 0;
+        int id;
 
         view.displayAllCategories(this.categoryCreator.getAllCategories(), false);
         while (!isCorrectInput) {
@@ -95,7 +101,6 @@ public class ProductCreator {
                 }
                 if (this.categoriesContainer.containsCategoryWithId(id)) {
                     category = this.categoriesContainer.getCategoryById(id);
-                    view.displayProductAddedMessage();
                     isCorrectInput = true;
                 } else {
                     view.displayWrongInputMessage();

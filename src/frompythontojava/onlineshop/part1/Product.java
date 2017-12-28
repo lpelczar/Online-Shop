@@ -55,13 +55,24 @@ public class Product {
 
     public ArrayList<Product> getAllProductsBy(ProductCategory productCategory) {
 
-        ArrayList<Product> matchingProducts = new ArrayList<Product>();
+        ArrayList<Product> matchingProducts = new ArrayList<>();
         for (Product product: productList) {
             if (product.getProductCategory().equals(productCategory)) {
                 matchingProducts.add(product);
             }
         }
         return matchingProducts;
+    }
+
+    public boolean containsProductWith(String name, Float defaultPrice, ProductCategory category) {
+
+        for (Product product: productList) {
+            if (product.getName().equals(name) && product.getDefaultPrice().equals(defaultPrice)
+                    && product.getProductCategory().equals(category)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public String toString() {

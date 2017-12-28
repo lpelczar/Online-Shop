@@ -1,8 +1,6 @@
 package frompythontojava.onlineshop.part3;
 
-import frompythontojava.onlineshop.part1.Iterator;
-import frompythontojava.onlineshop.part1.Product;
-import frompythontojava.onlineshop.part1.ProductCategory;
+import frompythontojava.onlineshop.part1.*;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -105,6 +103,11 @@ public class ShopView {
 
     public void displayCategoryAlreadyExistsMessage() {
         System.out.println("Category already exists in the list!");
+        displayPressAnyKeyToContinueMessage();
+    }
+
+    public void displayProductAlreadyExistsMessage() {
+        System.out.println("Product already exists in the list!");
         displayPressAnyKeyToContinueMessage();
     }
 
