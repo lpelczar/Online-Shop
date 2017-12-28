@@ -168,4 +168,9 @@ public class ProductController {
         }
         return isAvailable;
     }
+
+    protected void showAllAvailableProducts() {
+
+        view.displayAllProducts(getAllProducts(), true);
+    }
 }

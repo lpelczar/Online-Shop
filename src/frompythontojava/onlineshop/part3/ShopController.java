@@ -33,7 +33,7 @@ public class ShopController {
                     this.categoryController.createNewCategory(true);
                     break;
                 case "5":
-                    showAllAvailableProducts();
+                    this.productController.showAllAvailableProducts();
                     break;
                 case "6":
                     showProductsFromSpecificCategory();
@@ -51,11 +51,6 @@ public class ShopController {
                     view.displayWrongInputMessage();
             }
         }
-    }
-
-    private void showAllAvailableProducts() {
-
-        view.displayAllProducts(this.productController.getAllProducts(), true);
     }
 
     private void showProductsFromSpecificCategory() {
