@@ -74,4 +74,9 @@ public class CategoriesContainer {
         }
         return category;
     }
+
+    public ProductCategory getLastCreatedCategory() {
+
+        return this.categories.get(categories.size() - 1);
+    }
 }

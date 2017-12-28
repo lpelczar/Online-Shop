@@ -79,11 +79,12 @@ public class ProductCreator {
 
     private ProductCategory getProductCategory() {
 
-        ProductCategory category = null;
+        ProductCategory category;
 
         if (this.categoryCreator.getAllCategories().isEmpty()) {
             view.displayEmptyCategoriesListMessage();
             this.categoryCreator.createNewCategory();
+            category = this.categoriesContainer.getLastCreatedCategory();
         } else {
             category = handleChoosingCategoryOrCreatingNewOne();
         }
@@ -102,6 +103,7 @@ public class ProductCreator {
             String userInput = view.getCreatingCategoryInput();
             if (userInput.equals(addNewCategoryInput)) {
                 this.categoryCreator.createNewCategory();
+                category = this.categoriesContainer.getLastCreatedCategory();
                 isCorrectInput = true;
             } else {
                 try {
