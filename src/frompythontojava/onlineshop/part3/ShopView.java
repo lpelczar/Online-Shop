@@ -107,9 +107,14 @@ public class ShopView {
         }
     }
 
-    public void displayCategoryAddedMessage() {
-        System.out.println("Category has been added to list!");
-        displayPressAnyKeyToContinueMessage();
+    public void displayCategoryAddedMessage(boolean getInput) {
+
+        if (getInput) {
+            System.out.println("Category has been added to list!");
+            displayPressAnyKeyToContinueMessage();
+        } else {
+            System.out.print("Category has been added to list and ");
+        }
     }
 
     public void displayProductAddedMessage() {
@@ -117,9 +122,14 @@ public class ShopView {
         displayPressAnyKeyToContinueMessage();
     }
 
-    public void displayCategoryAlreadyExistsMessage() {
-        System.out.println("Category already exists in the list!");
-        displayPressAnyKeyToContinueMessage();
+    public void displayCategoryAlreadyExistsMessage(boolean getInput) {
+
+        if (getInput) {
+            System.out.println("Category already exists in the list!");
+            displayPressAnyKeyToContinueMessage();
+        } else {
+            System.out.print("Category already exists in the list and ");
+        }
     }
 
     public void displayProductAlreadyExistsMessage() {

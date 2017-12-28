@@ -29,7 +29,7 @@ public class ShopController {
                     this.productCreator.createNewProduct();
                     break;
                 case "2":
-                    this.categoryCreator.createNewCategory();
+                    this.categoryCreator.createNewCategory(true);
                     break;
                 case "5":
                     showAllAvailableProducts();

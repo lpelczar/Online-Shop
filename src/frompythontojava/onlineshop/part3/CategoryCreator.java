@@ -24,24 +24,24 @@ public class CategoryCreator {
         return this.categoriesContainer.getCategories();
     }
 
-    public void createNewCategory() {
+    public void createNewCategory(boolean getInput) {
 
         String name = getCategoryName();
         boolean isFeaturedCategory = getIsFeaturedCategory();
         if (!isFeaturedCategory) {
             if (!this.categoriesContainer.containsProductCategory(name)) {
                 this.categoriesContainer.addCategory(new ProductCategory(name));
-                view.displayCategoryAddedMessage();
+                view.displayCategoryAddedMessage(getInput);
             } else {
-                view.displayCategoryAlreadyExistsMessage();
+                view.displayCategoryAlreadyExistsMessage(getInput);
             }
         } else {
             Date expirationDate = getExpirationDate();
             if (!this.categoriesContainer.containsFeaturedProductCategory(name, expirationDate)) {
                 this.categoriesContainer.addCategory(new FeaturedProductCategory(name, expirationDate));
-                view.displayCategoryAddedMessage();
+                view.displayCategoryAddedMessage(getInput);
             } else {
-                view.displayCategoryAlreadyExistsMessage();
+                view.displayCategoryAlreadyExistsMessage(getInput);
             }
         }
     }
