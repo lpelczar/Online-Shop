@@ -93,4 +93,9 @@ public class CategoryController {
         }
         return expirationDate;
     }
+
+    protected void displayAllCategories() {
+
+        view.displayAllCategories(getAllCategories(), true);
+    }
 }

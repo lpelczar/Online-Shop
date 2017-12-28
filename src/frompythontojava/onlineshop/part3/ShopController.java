@@ -1,9 +1,5 @@
 package frompythontojava.onlineshop.part3;
 
-import frompythontojava.onlineshop.part1.*;
-
-import java.util.ArrayList;
-
 public class ShopController {
 
     private ShopView view;
@@ -39,7 +35,7 @@ public class ShopController {
                     this.productController.showProductsFromSpecificCategory();
                     break;
                 case "7":
-                    view.displayAllCategories(this.categoryController.getAllCategories(), true);
+                    this.categoryController.displayAllCategories();
                     break;
                 case "8":
                     this.productController.checkAvailabilityOfSpecificProduct();
