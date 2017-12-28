@@ -173,4 +173,15 @@ public class ProductController {
 
         view.displayAllProducts(getAllProducts(), true);
     }
+
+    protected void showProductsFromSpecificCategory() {
+
+        if (!this.categoryController.getAllCategories().isEmpty()) {
+            view.displayAllCategories(this.categoryController.getAllCategories(), false);
+            ArrayList<Product> productsFromCategory = getProductsFromCategory();
+            view.displayAllProducts(productsFromCategory, true);
+        } else {
+            view.displayNoProductsMessage();
+        }
+    }
 }

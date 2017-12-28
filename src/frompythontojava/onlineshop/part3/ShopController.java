@@ -36,7 +36,7 @@ public class ShopController {
                     this.productController.showAllAvailableProducts();
                     break;
                 case "6":
-                    showProductsFromSpecificCategory();
+                    this.productController.showProductsFromSpecificCategory();
                     break;
                 case "7":
                     view.displayAllCategories(this.categoryController.getAllCategories(), true);
@@ -50,17 +50,6 @@ public class ShopController {
                 default:
                     view.displayWrongInputMessage();
             }
-        }
-    }
-
-    private void showProductsFromSpecificCategory() {
-
-        if (!this.categoryController.getAllCategories().isEmpty()) {
-            view.displayAllCategories(this.categoryController.getAllCategories(), false);
-            ArrayList<Product> productsFromCategory = this.productController.getProductsFromCategory();
-            view.displayAllProducts(productsFromCategory, true);
-        } else {
-            view.displayNoProductsMessage();
         }
     }
 
