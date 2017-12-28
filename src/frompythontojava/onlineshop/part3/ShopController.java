@@ -23,7 +23,6 @@ public class ShopController {
         boolean shouldExit = false;
 
         while (!shouldExit) {
-            clearConsole();
             view.displayMenu(this.basketController.getBasketIterator());
             String userInput = view.getUserInput();
             switch (userInput) {
@@ -81,8 +80,4 @@ public class ShopController {
         }
     }
 
-    private static void clearConsole() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
-    }
 }
