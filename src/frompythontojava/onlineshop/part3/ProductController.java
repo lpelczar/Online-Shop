@@ -7,15 +7,20 @@ import java.util.ArrayList;
 
 public class ProductController {
 
+    private static final ProductController instance = new ProductController();
     private Product product;
     private CategoryController categoryController;
     private CategoriesContainer categoriesContainer;
     private ShopView view;
 
-    ProductController() {
+    private ProductController() {
         this.categoryController = new CategoryController();
         this.categoriesContainer = CategoriesContainer.getInstance();
         this.view = new ShopView();
+    }
+
+    public static ProductController getInstance(){
+        return instance;
     }
 
     public void createNewProduct() {
@@ -158,7 +163,7 @@ public class ProductController {
         return category;
     }
 
-    public boolean checkAvailabilityOfProductWithName(String name) {
+    private boolean checkAvailabilityOfProductWithName(String name) {
 
         boolean isAvailable;
         if (this.product == null) {
@@ -194,5 +199,40 @@ public class ProductController {
         } else {
             view.displayProductNotAvailableMessage(name);
         }
+    }
+
+    protected Product getProductById() {
+
+        boolean isCorrectInput = false;
+        Product product = null;
+        int id;
+
+        while(!isCorrectInput) {
+            String userInput = view.getProductIdInput();
+            try {
+                id = Integer.parseInt(userInput);
+            } catch (NumberFormatException e) {
+                view.displayWrongInputMessage();
+                continue;
+            }
+            if (checkAvailabilityOfProductWithId(id)) {
+                product = this.product.getProductById(id);
+                isCorrectInput = true;
+            } else {
+                view.displayWrongInputMessage();
+            }
+        }
+        return product;
+    }
+
+    private boolean checkAvailabilityOfProductWithId(int id) {
+
+        boolean isAvailable;
+        if (this.product == null) {
+            isAvailable = false;
+        } else {
+            isAvailable = this.product.containsProductWithId(id);
+        }
+        return isAvailable;
     }
 }

@@ -57,6 +57,11 @@ public class ShopView {
         return getStringInput();
     }
 
+    public String getProductIdInput() {
+        System.out.print("\nEnter product ID: ");
+        return getStringInput();
+    }
+
     public String getCategoryNameInput() {
         System.out.print("Enter category name: ");
         return getStringInput();

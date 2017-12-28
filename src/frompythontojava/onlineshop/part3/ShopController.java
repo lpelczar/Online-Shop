@@ -12,7 +12,7 @@ public class ShopController {
         this.view = new ShopView();
         this.basketController = new BasketController();
         this.categoryController = new CategoryController();
-        this.productController = new ProductController();
+        this.productController = ProductController.getInstance();
     }
 
     public void run(){
@@ -27,6 +27,9 @@ public class ShopController {
                     break;
                 case "2":
                     this.categoryController.createNewCategory(true);
+                    break;
+                case "3":
+                    this.basketController.addProductToBasket();
                     break;
                 case "5":
                     this.productController.showAllAvailableProducts();

@@ -32,6 +32,10 @@ public class Product {
         this.name = name;
     }
 
+    public int getID() {
+        return ID;
+    }
+
     public Float getDefaultPrice() {
         return defaultPrice;
     }
@@ -83,6 +87,27 @@ public class Product {
             }
         }
         return false;
+    }
+
+    public boolean containsProductWithId(int id) {
+
+        for (Product product: productList) {
+            if (product.getID() == id) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Product getProductById(int id) {
+
+        Product product = null;
+        for (Product p : productList) {
+            if (p.getID() == id) {
+                product = p;
+            }
+        }
+        return product;
     }
 
     public String toString() {
