@@ -184,4 +184,15 @@ public class ProductController {
             view.displayNoProductsMessage();
         }
     }
+
+    protected void checkAvailabilityOfSpecificProduct() {
+
+        String name = getProductName();
+        boolean isAvailable = checkAvailabilityOfProductWithName(name);
+        if (isAvailable) {
+            view.displayProductAvailableMessage(name);
+        } else {
+            view.displayProductNotAvailableMessage(name);
+        }
+    }
 }
