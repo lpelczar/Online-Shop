@@ -31,6 +31,9 @@ public class ShopController {
                 case "2":
                     this.categoryCreator.createNewCategory();
                     break;
+                case "5":
+                    showAllAvailableProducts();
+                    break;
                 case "7":
                     view.displayAllCategories(this.categoryCreator.getAllCategories(), true);
                     break;
@@ -41,6 +44,11 @@ public class ShopController {
                     view.displayWrongInputMessage();
             }
         }
+    }
+
+    private void showAllAvailableProducts() {
+
+        view.displayAllProducts(this.productCreator.getAllProducts(), true);
     }
 
     private static void clearConsole() {

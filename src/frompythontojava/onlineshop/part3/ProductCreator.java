@@ -2,6 +2,8 @@ package frompythontojava.onlineshop.part3;
 
 import frompythontojava.onlineshop.part1.*;
 
+import java.util.ArrayList;
+
 
 public class ProductCreator {
 
@@ -48,6 +50,15 @@ public class ProductCreator {
             }
         }
         return name;
+    }
+
+    public ArrayList<Product> getAllProducts() {
+
+        ArrayList<Product> products = new ArrayList<>();
+        if (this.product != null) {
+            products = this.product.getAllProducts();
+        }
+        return products;
     }
 
     private Float getPrice() {

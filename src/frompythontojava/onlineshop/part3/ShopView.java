@@ -91,6 +91,22 @@ public class ShopView {
         }
     }
 
+    public void displayAllProducts(ArrayList<Product> products, boolean getInput) {
+
+        clearConsole();
+        System.out.println("Available Products: ");
+        if (products.isEmpty()) {
+            System.out.println("List is empty!");
+        } else {
+            for (Product p : products) {
+                System.out.println(p);
+            }
+        }
+        if (getInput) {
+            displayPressAnyKeyToContinueMessage();
+        }
+    }
+
     public void displayCategoryAddedMessage() {
         System.out.println("Category has been added to list!");
         displayPressAnyKeyToContinueMessage();
