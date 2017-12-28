@@ -6,15 +6,15 @@ import java.util.ArrayList;
 
 public class ShopController {
 
-    private Basket basket;
     private ShopView view;
+    private BasketController basketController;
     private CategoryController categoryController;
     private ProductController productController;
 
 
     ShopController() {
-        this.basket = new Basket();
         this.view = new ShopView();
+        this.basketController = new BasketController();
         this.categoryController = new CategoryController();
         this.productController = new ProductController();
     }
@@ -24,7 +24,7 @@ public class ShopController {
 
         while (!shouldExit) {
             clearConsole();
-            view.displayMenu(this.basket.getIterator());
+            view.displayMenu(this.basketController.getBasketIterator());
             String userInput = view.getUserInput();
             switch (userInput) {
                 case "1":
