@@ -5,15 +5,15 @@ import frompythontojava.onlineshop.part1.*;
 import java.util.ArrayList;
 
 
-public class ProductCreator {
+public class ProductController {
 
     private Product product;
-    private CategoryCreator categoryCreator;
+    private CategoryController categoryController;
     private CategoriesContainer categoriesContainer;
     private ShopView view;
 
-    ProductCreator() {
-        this.categoryCreator = new CategoryCreator();
+    ProductController() {
+        this.categoryController = new CategoryController();
         this.categoriesContainer = CategoriesContainer.getInstance();
         this.view = new ShopView();
     }
@@ -116,9 +116,9 @@ public class ProductCreator {
 
         ProductCategory category;
 
-        if (this.categoryCreator.getAllCategories().isEmpty()) {
+        if (this.categoryController.getAllCategories().isEmpty()) {
             view.displayEmptyCategoriesListMessage();
-            this.categoryCreator.createNewCategory(false);
+            this.categoryController.createNewCategory(false);
             category = this.categoriesContainer.getLastCreatedCategory();
         } else {
             category = handleChoosingCategoryOrCreatingNewOne();
@@ -133,11 +133,11 @@ public class ProductCreator {
         ProductCategory category = null;
         int id;
 
-        view.displayAllCategories(this.categoryCreator.getAllCategories(), false);
+        view.displayAllCategories(this.categoryController.getAllCategories(), false);
         while (!isCorrectInput) {
             String userInput = view.getCreatingCategoryInput();
             if (userInput.equals(addNewCategoryInput)) {
-                this.categoryCreator.createNewCategory(false);
+                this.categoryController.createNewCategory(false);
                 category = this.categoriesContainer.getLastCreatedCategory();
                 isCorrectInput = true;
             } else {

@@ -7,13 +7,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 
-public class CategoryCreator {
+public class CategoryController {
 
     private ShopView view;
     private DateValidator dateValidator;
     private CategoriesContainer categoriesContainer;
 
-    CategoryCreator() {
+    CategoryController() {
         this.view = new ShopView();
         this.dateValidator = new DateValidator();
         this.categoriesContainer = CategoriesContainer.getInstance();

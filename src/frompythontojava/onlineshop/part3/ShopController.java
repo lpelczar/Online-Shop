@@ -8,16 +8,16 @@ public class ShopController {
 
     private Basket basket;
     private ShopView view;
-    private CategoryCreator categoryCreator;
-    private ProductCreator productCreator;
+    private CategoryController categoryController;
+    private ProductController productController;
     private CategoriesContainer categoriesContainer;
 
 
     ShopController() {
         this.basket = new Basket();
         this.view = new ShopView();
-        this.categoryCreator = new CategoryCreator();
-        this.productCreator = new ProductCreator();
+        this.categoryController = new CategoryController();
+        this.productController = new ProductController();
         this.categoriesContainer = CategoriesContainer.getInstance();
     }
 
@@ -30,10 +30,10 @@ public class ShopController {
             String userInput = view.getUserInput();
             switch (userInput) {
                 case "1":
-                    this.productCreator.createNewProduct();
+                    this.productController.createNewProduct();
                     break;
                 case "2":
-                    this.categoryCreator.createNewCategory(true);
+                    this.categoryController.createNewCategory(true);
                     break;
                 case "5":
                     showAllAvailableProducts();
@@ -41,7 +41,7 @@ public class ShopController {
                 case "6":
                     showProductsFromSpecificCategory();
                 case "7":
-                    view.displayAllCategories(this.categoryCreator.getAllCategories(), true);
+                    view.displayAllCategories(this.categoryController.getAllCategories(), true);
                     break;
                 case "8":
                     checkAvailabilityOfSpecificProduct();
@@ -57,24 +57,24 @@ public class ShopController {
 
     private void showAllAvailableProducts() {
 
-        view.displayAllProducts(this.productCreator.getAllProducts(), true);
+        view.displayAllProducts(this.productController.getAllProducts(), true);
     }
 
     private void showProductsFromSpecificCategory() {
 
-        if (!this.categoryCreator.getAllCategories().isEmpty()) {
-            view.displayAllCategories(this.categoryCreator.getAllCategories(), false);
-            ArrayList<Product> productsFromCategory = this.productCreator.getProductsFromCategory();
+        if (!this.categoryController.getAllCategories().isEmpty()) {
+            view.displayAllCategories(this.categoryController.getAllCategories(), false);
+            ArrayList<Product> productsFromCategory = this.productController.getProductsFromCategory();
             view.displayAllProducts(productsFromCategory, true);
         } else {
-            view.displayAllCategories(this.categoryCreator.getAllCategories(), true);
+            view.displayAllCategories(this.categoryController.getAllCategories(), true);
         }
     }
 
     private void checkAvailabilityOfSpecificProduct() {
 
-        String name = this.productCreator.getProductName();
-        boolean isAvailable = this.productCreator.checkAvailabilityOfProductWithName(name);
+        String name = this.productController.getProductName();
+        boolean isAvailable = this.productController.checkAvailabilityOfProductWithName(name);
         if (isAvailable) {
             view.displayProductAvailableMessage(name);
         } else {
