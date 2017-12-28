@@ -10,7 +10,6 @@ public class ShopController {
     private ShopView view;
     private CategoryController categoryController;
     private ProductController productController;
-    private CategoriesContainer categoriesContainer;
 
 
     ShopController() {
@@ -18,7 +17,6 @@ public class ShopController {
         this.view = new ShopView();
         this.categoryController = new CategoryController();
         this.productController = new ProductController();
-        this.categoriesContainer = CategoriesContainer.getInstance();
     }
 
     public void run(){
