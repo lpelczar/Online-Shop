@@ -40,6 +40,7 @@ public class ShopController {
                     break;
                 case "6":
                     showProductsFromSpecificCategory();
+                    break;
                 case "7":
                     view.displayAllCategories(this.categoryController.getAllCategories(), true);
                     break;
@@ -67,7 +68,7 @@ public class ShopController {
             ArrayList<Product> productsFromCategory = this.productController.getProductsFromCategory();
             view.displayAllProducts(productsFromCategory, true);
         } else {
-            view.displayAllCategories(this.categoryController.getAllCategories(), true);
+            view.displayNoProductsMessage();
         }
     }
 

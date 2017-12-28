@@ -152,6 +152,11 @@ public class ShopView {
         displayPressAnyKeyToContinueMessage();
     }
 
+    public void displayNoProductsMessage() {
+        System.out.println("\nThere is no products here, you need to add one!");
+        displayPressAnyKeyToContinueMessage();
+    }
+
     private void displayPressAnyKeyToContinueMessage() {
         System.out.print("\nPress any key to continue.");
         Scanner scanner = new Scanner(System.in);
