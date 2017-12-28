@@ -61,6 +61,41 @@ public class ProductCreator {
         return products;
     }
 
+    public ArrayList<Product> getProductsFromCategory() {
+
+        ProductCategory category = getCategoryByGivenId();
+        ArrayList<Product> products = new ArrayList<>();
+        if (this.product != null) {
+            products = this.product.getAllProductsBy(category);
+        }
+        return products;
+    }
+
+    private ProductCategory getCategoryByGivenId() {
+
+        boolean isCorrectInput = false;
+        ProductCategory category = null;
+        int id;
+
+        while(!isCorrectInput) {
+            String userInput = view.getCategoryIdInput();
+            try {
+                id = Integer.parseInt(userInput);
+            } catch (NumberFormatException e) {
+                view.displayWrongInputMessage();
+                continue;
+            }
+            if (this.categoriesContainer.containsCategoryWithId(id)) {
+                category = this.categoriesContainer.getCategoryById(id);
+                isCorrectInput = true;
+            } else {
+                view.displayWrongInputMessage();
+            }
+        }
+        return category;
+    }
+
+
     private Float getPrice() {
 
         Float price = null;

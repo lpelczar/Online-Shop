@@ -2,12 +2,15 @@ package frompythontojava.onlineshop.part3;
 
 import frompythontojava.onlineshop.part1.*;
 
+import java.util.ArrayList;
+
 public class ShopController {
 
     private Basket basket;
     private ShopView view;
     private CategoryCreator categoryCreator;
     private ProductCreator productCreator;
+    private CategoriesContainer categoriesContainer;
 
 
     ShopController() {
@@ -15,6 +18,7 @@ public class ShopController {
         this.view = new ShopView();
         this.categoryCreator = new CategoryCreator();
         this.productCreator = new ProductCreator();
+        this.categoriesContainer = CategoriesContainer.getInstance();
     }
 
     public void run(){
@@ -34,6 +38,8 @@ public class ShopController {
                 case "5":
                     showAllAvailableProducts();
                     break;
+                case "6":
+                    showProductsFromSpecificCategory();
                 case "7":
                     view.displayAllCategories(this.categoryCreator.getAllCategories(), true);
                     break;
@@ -49,6 +55,17 @@ public class ShopController {
     private void showAllAvailableProducts() {
 
         view.displayAllProducts(this.productCreator.getAllProducts(), true);
+    }
+
+    private void showProductsFromSpecificCategory() {
+
+        if (!this.categoryCreator.getAllCategories().isEmpty()) {
+            view.displayAllCategories(this.categoryCreator.getAllCategories(), false);
+            ArrayList<Product> productsFromCategory = this.productCreator.getProductsFromCategory();
+            view.displayAllProducts(productsFromCategory, true);
+        } else {
+            view.displayAllCategories(this.categoryCreator.getAllCategories(), true);
+        }
     }
 
     private static void clearConsole() {
