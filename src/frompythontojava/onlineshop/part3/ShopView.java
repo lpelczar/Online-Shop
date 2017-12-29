@@ -16,8 +16,7 @@ public class ShopView {
             System.out.println("Your basket is empty!");
         } else {
             while (basketIterator.hasNext()) {
-                Product p = (Product) basketIterator.next();
-                System.out.println(p);
+                System.out.println(basketIterator.next());
             }
         }
         displayOptions();
