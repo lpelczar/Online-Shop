@@ -36,7 +36,7 @@ public class ShopView {
                            " 8. Check availability of specific product\n" +
                            " 9. Pay for the order\n" +
                            "10. Display all orders\n" +
-                           " 0. Exit");
+                           "11. Exit");
     }
 
     public String getUserInput() {

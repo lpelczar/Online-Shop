@@ -54,7 +54,7 @@ public class ShopController {
                 case "10":
                     this.orderController.displayAllOrders();
                     break;
-                case "0":
+                case "11":
                     shouldExit = true;
                     break;
                 default:

@@ -44,4 +44,9 @@ public class Order implements Orderable {
 
         this.basket = basket;
     }
+
+    @Override
+    public String toString() {
+        return "ID: " + this.id + " Status: " + this.status + " Items in order: " + this.basket.getItemsQuantity();
+    }
 }

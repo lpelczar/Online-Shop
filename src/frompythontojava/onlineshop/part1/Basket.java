@@ -47,4 +47,9 @@ public class Basket {
     public ArrayList<Product> getProductList(){
         return productList;
     }
+
+    public int getItemsQuantity() {
+
+        return this.productList.size();
+    }
 }
