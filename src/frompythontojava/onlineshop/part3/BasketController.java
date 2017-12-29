@@ -18,6 +18,10 @@ public class BasketController {
         return this.basket.getIterator();
     }
 
+    public Basket getBasket() {
+        return basket;
+    }
+
     protected void addProductToBasket() {
         if (this.productController.getAllProducts().isEmpty()) {
             view.displayNoProductsMessage();

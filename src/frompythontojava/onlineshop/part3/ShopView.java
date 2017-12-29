@@ -1,6 +1,7 @@
 package frompythontojava.onlineshop.part3;
 
 import frompythontojava.onlineshop.part1.*;
+import frompythontojava.onlineshop.part2.Orderable;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -25,16 +26,17 @@ public class ShopView {
     private void displayOptions() {
 
         System.out.println("\nWhat do you want to do?\n" +
-                           "1. Create new product\n" +
-                           "2. Create new category\n" +
-                           "3. Add product to basket\n" +
-                           "4. Remove product from basket\n" +
-                           "5. Show all available products\n" +
-                           "6. Show products from specific category\n" +
-                           "7. Show all categories\n" +
-                           "8. Check availability of specific product\n" +
-                           "9. Pay for the order\n" +
-                           "0. Exit");
+                           " 1. Create new product\n" +
+                           " 2. Create new category\n" +
+                           " 3. Add product to basket\n" +
+                           " 4. Remove product from basket\n" +
+                           " 5. Show all available products\n" +
+                           " 6. Show products from specific category\n" +
+                           " 7. Show all categories\n" +
+                           " 8. Check availability of specific product\n" +
+                           " 9. Pay for the order\n" +
+                           "10. Display all orders\n" +
+                           " 0. Exit");
     }
 
     public String getUserInput() {
@@ -115,6 +117,25 @@ public class ShopView {
         if (getInput) {
             displayPressAnyKeyToContinueMessage();
         }
+    }
+
+    public void displayAllOrders(ArrayList<Orderable> orders) {
+
+        clearConsole();
+        System.out.println("Orders:");
+        if (orders.isEmpty()) {
+            System.out.println("\nList of orders is empty!");
+        } else {
+            for (Orderable order : orders) {
+                System.out.println(order);
+            }
+        }
+        displayPressAnyKeyToContinueMessage();
+    }
+
+    public void displayOrderStatusChangedToPayed() {
+        System.out.println("Actual status of the order changed to: payed, and order added to orders list!");
+        displayPressAnyKeyToContinueMessage();
     }
 
     public void displayCategoryAddedMessage(boolean getInput) {

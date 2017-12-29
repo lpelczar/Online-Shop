@@ -1,5 +1,7 @@
 package frompythontojava.onlineshop.part2;
 
+import frompythontojava.onlineshop.part1.Basket;
+
 public class Order implements Orderable {
 
     private int id;
@@ -8,8 +10,9 @@ public class Order implements Orderable {
     private final String newStatus = "new";
     private final String checkedStatus = "checked";
     private final String payedStatus = "payed";
+    private Basket basket;
 
-    Order() {
+    public Order() {
         this.id = nextId;
         nextId++;
         this.status = newStatus;
@@ -35,5 +38,10 @@ public class Order implements Orderable {
         } else {
             return false;
         }
+    }
+
+    public void addBasket(Basket basket) {
+
+        this.basket = basket;
     }
 }

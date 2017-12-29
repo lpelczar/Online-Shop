@@ -6,6 +6,7 @@ public class ShopController {
     private BasketController basketController;
     private CategoryController categoryController;
     private ProductController productController;
+    private OrderController orderController;
 
 
     ShopController() {
@@ -13,6 +14,7 @@ public class ShopController {
         this.basketController = new BasketController();
         this.categoryController = new CategoryController();
         this.productController = ProductController.getInstance();
+        this.orderController = new OrderController();
     }
 
     public void run(){
@@ -45,6 +47,12 @@ public class ShopController {
                     break;
                 case "8":
                     this.productController.checkAvailabilityOfSpecificProduct();
+                    break;
+                case "9":
+                    this.orderController.payForOrder(this.basketController.getBasket());
+                    break;
+                case "10":
+                    this.orderController.displayAllOrders();
                     break;
                 case "0":
                     shouldExit = true;
