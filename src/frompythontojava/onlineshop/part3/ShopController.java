@@ -31,6 +31,9 @@ public class ShopController {
                 case "3":
                     this.basketController.addProductToBasket();
                     break;
+                case "4":
+                    this.basketController.removeProductFromBasket();
+                    break;
                 case "5":
                     this.productController.showAllAvailableProducts();
                     break;

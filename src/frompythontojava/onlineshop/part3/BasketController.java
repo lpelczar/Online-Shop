@@ -28,4 +28,34 @@ public class BasketController {
             view.displayProductAddedToBasket();
         }
     }
+
+    protected void removeProductFromBasket() {
+
+        if (this.basket.getProductList().isEmpty()) {
+            view.displayCannotDeleteFromEmptyBasket();
+        } else {
+            int id = getProductIdInput();
+            if (this.basket.removeAllProductsWithId(id)) {
+                view.displayAllProductsWithGivenIdRemoved();
+            } else {
+                view.displayNoProductsInTheBasketMessage();
+            }
+        }
+    }
+
+    private int getProductIdInput() {
+
+        int id = 0;
+        boolean isCorrectInput = false;
+
+        while(!isCorrectInput) {
+            try {
+                id = Integer.parseInt(view.getIdInput());
+                isCorrectInput = true;
+            } catch (NumberFormatException e) {
+                view.displayWrongInputMessage();
+            }
+        }
+        return id;
+    }
 }

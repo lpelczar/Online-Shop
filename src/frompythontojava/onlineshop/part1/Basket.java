@@ -36,7 +36,16 @@ public class Basket {
         productList.add(product);
     }
 
-    public Boolean removeProduct(Product product) {
+    public boolean removeProduct(Product product) {
         return productList.remove(product);
+    }
+
+    public boolean removeAllProductsWithId(int id) {
+
+        return productList.removeIf(p -> p.getID() == id);
+    }
+
+    public ArrayList<Product> getProductList(){
+        return productList;
     }
 }

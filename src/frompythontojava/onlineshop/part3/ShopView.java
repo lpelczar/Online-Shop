@@ -163,6 +163,21 @@ public class ShopView {
         displayPressAnyKeyToContinueMessage();
     }
 
+    public void displayNoProductsInTheBasketMessage() {
+        System.out.println("\nThere are no products in the basket with given ID");
+        displayPressAnyKeyToContinueMessage();
+    }
+
+    public void displayAllProductsWithGivenIdRemoved() {
+        System.out.println("\nAll products with given ID has been removed from basket!");
+        displayPressAnyKeyToContinueMessage();
+    }
+
+    public void displayCannotDeleteFromEmptyBasket() {
+        System.out.println("\nYou need to add some products to basket first in order to delete one!");
+        displayPressAnyKeyToContinueMessage();
+    }
+
     public void displayProductAddedToBasket() {
         System.out.println("\nProduct has been added to basket!");
         displayPressAnyKeyToContinueMessage();
@@ -181,6 +196,11 @@ public class ShopView {
 
     public String getCreatingCategoryInput() {
         System.out.print("\nEnter ID to choose category or \"a\" to create new one: ");
+        return getStringInput();
+    }
+
+    public String getIdInput() {
+        System.out.print("Enter ID of the product: ");
         return getStringInput();
     }
 
