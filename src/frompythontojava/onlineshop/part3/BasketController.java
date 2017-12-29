@@ -22,8 +22,10 @@ public class BasketController {
         if (this.productController.getAllProducts().isEmpty()) {
             view.displayNoProductsMessage();
         } else {
+            view.displayAllProducts(this.productController.getAllProducts(), false);
             Product product = this.productController.getProductById();
             this.basket.addProduct(product);
+            view.displayProductAddedToBasket();
         }
     }
 }

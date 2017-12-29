@@ -163,6 +163,11 @@ public class ShopView {
         displayPressAnyKeyToContinueMessage();
     }
 
+    public void displayProductAddedToBasket() {
+        System.out.println("\nProduct has been added to basket!");
+        displayPressAnyKeyToContinueMessage();
+    }
+
     private void displayPressAnyKeyToContinueMessage() {
         System.out.print("\nPress any key to continue.");
         Scanner scanner = new Scanner(System.in);
