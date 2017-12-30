@@ -7,18 +7,18 @@ import java.util.ArrayList;
 
 public class OrderContainer {
 
-    private ArrayList<Orderable> orders;
+    private ArrayList<Order> orders;
 
     public OrderContainer() {
         this.orders = new ArrayList<>();
     }
 
-    public void addOrder(Orderable order) {
+    public void addOrder(Order order) {
         this.orders.add(order);
         serializeOrders();
     }
 
-    public ArrayList<Orderable> getOrders() {
+    public ArrayList<Order> getOrders() {
         deserializeOrders();
         return orders;
     }
@@ -35,7 +35,7 @@ public class OrderContainer {
         String filePath = "src/frompythontojava/onlineshop/data/orders.ser";
         if (new File(filePath).exists())
         {
-            this.orders = (ArrayList<Orderable>) Serializator.deserializeObject(filePath);
+            this.orders = (ArrayList<Order>) Serializator.deserializeObject(filePath);
         }
     }
 }

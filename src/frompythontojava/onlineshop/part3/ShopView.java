@@ -1,6 +1,7 @@
 package frompythontojava.onlineshop.part3;
 
 import frompythontojava.onlineshop.part1.*;
+import frompythontojava.onlineshop.part2.Order;
 import frompythontojava.onlineshop.part2.Orderable;
 
 import java.util.ArrayList;
@@ -119,14 +120,14 @@ public class ShopView {
         }
     }
 
-    public void displayAllOrders(ArrayList<Orderable> orders) {
+    public void displayAllOrders(ArrayList<Order> orders) {
 
         clearConsole();
         System.out.println("Orders:");
         if (orders.isEmpty()) {
             System.out.println("\nList of orders is empty!");
         } else {
-            for (Orderable order : orders) {
+            for (Order order : orders) {
                 System.out.println(order);
             }
         }
