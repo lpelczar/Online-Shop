@@ -1,8 +1,9 @@
 package frompythontojava.onlineshop.part1;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Product {
+public class Product implements Serializable {
 
     private String name;
     private Float defaultPrice;

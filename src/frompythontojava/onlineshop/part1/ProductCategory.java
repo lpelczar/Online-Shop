@@ -1,6 +1,8 @@
 package frompythontojava.onlineshop.part1;
 
-public class ProductCategory {
+import java.io.Serializable;
+
+public class ProductCategory implements Serializable {
 
     private String name;
     private final int ID;

@@ -2,7 +2,9 @@ package frompythontojava.onlineshop.part2;
 
 import frompythontojava.onlineshop.part1.Basket;
 
-public class Order implements Orderable {
+import java.io.Serializable;
+
+public class Order implements Orderable, Serializable {
 
     private int id;
     private static int nextId = 1;

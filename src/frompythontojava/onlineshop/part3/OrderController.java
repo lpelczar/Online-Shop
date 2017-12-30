@@ -3,8 +3,6 @@ package frompythontojava.onlineshop.part3;
 import frompythontojava.onlineshop.part1.Basket;
 import frompythontojava.onlineshop.part2.*;
 
-import java.util.ArrayList;
-
 public class OrderController {
 
     private PaymentProcess paymentProcess;
