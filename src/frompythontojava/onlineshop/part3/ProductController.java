@@ -15,7 +15,7 @@ public class ProductController {
 
     private ProductController() {
         this.categoryController = new CategoryController();
-        this.categoriesContainer = CategoriesContainer.getInstance();
+        this.categoriesContainer = new CategoriesContainer();
         this.view = new ShopView();
     }
 

@@ -16,7 +16,7 @@ public class CategoryController {
     CategoryController() {
         this.view = new ShopView();
         this.dateValidator = new DateValidator();
-        this.categoriesContainer = CategoriesContainer.getInstance();
+        this.categoriesContainer = new CategoriesContainer();
     }
 
     public ArrayList<ProductCategory> getAllCategories() {
