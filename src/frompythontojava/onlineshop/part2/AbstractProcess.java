@@ -10,11 +10,11 @@ public abstract class AbstractProcess {
     }
 
     public void stepBefore() {
-        System.out.println("Starting action!");
+        System.out.println("Starting process!");
     }
 
     public void stepAfter() {
-        System.out.println("Ending action!");
+        System.out.println("Ending process!");
     }
 
     protected abstract void action(Orderable item);
