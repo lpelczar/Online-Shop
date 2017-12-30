@@ -153,11 +153,6 @@ public class ShopView {
         displayPressAnyKeyToContinueMessage();
     }
 
-    public void displayProductAvailableMessage(String name) {
-        System.out.println(name + " is available!");
-        displayPressAnyKeyToContinueMessage();
-    }
-
     public void displayProductNotAvailableMessage(String name) {
         System.out.println(name + " is not available!");
         displayPressAnyKeyToContinueMessage();

@@ -195,7 +195,7 @@ public class ProductController {
         String name = getProductName();
         boolean isAvailable = checkAvailabilityOfProductWithName(name);
         if (isAvailable) {
-            view.displayProductAvailableMessage(name);
+            view.displayAllProducts(this.product.getAllProductsBy(name), true);
         } else {
             view.displayProductNotAvailableMessage(name);
         }

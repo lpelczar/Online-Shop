@@ -68,6 +68,17 @@ public class Product {
         return matchingProducts;
     }
 
+    public ArrayList<Product> getAllProductsBy(String name) {
+
+        ArrayList<Product> matchingProducts = new ArrayList<>();
+        for (Product product: productList) {
+            if (product.getName().equals(name)) {
+                matchingProducts.add(product);
+            }
+        }
+        return matchingProducts;
+    }
+
     public boolean containsProductWith(String name, Float defaultPrice, ProductCategory category) {
 
         for (Product product: productList) {
