@@ -69,7 +69,7 @@ public class Product implements Serializable {
 
         ArrayList<Product> matchingProducts = new ArrayList<>();
         for (Product product: getAllProducts()) {
-            if (product.getProductCategory().equals(productCategory)) {
+            if (product.getProductCategory().getID() == productCategory.getID()) {
                 matchingProducts.add(product);
             }
         }
