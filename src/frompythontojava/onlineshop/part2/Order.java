@@ -1,7 +1,9 @@
 package frompythontojava.onlineshop.part2;
 
+import frompythontojava.onlineshop.data.Serializator;
 import frompythontojava.onlineshop.part1.Basket;
 
+import java.io.File;
 import java.io.Serializable;
 
 public class Order implements Orderable, Serializable {
@@ -15,8 +17,10 @@ public class Order implements Orderable, Serializable {
     private Basket basket;
 
     public Order() {
+        deserializeNextId();
         this.id = nextId;
         nextId++;
+        serializeNextId();
         this.status = newStatus;
     }
 
@@ -50,5 +54,20 @@ public class Order implements Orderable, Serializable {
     @Override
     public String toString() {
         return "ID: " + this.id + " Status: " + this.status + " Items in order: " + this.basket.getItemsQuantity();
+    }
+
+    private void serializeNextId() {
+
+        String filePath = "src/frompythontojava/onlineshop/data/orderNextId.ser";
+        Serializator.serializeObject(filePath, nextId);
+    }
+
+    @SuppressWarnings("unchecked")
+    private void deserializeNextId() {
+
+        String filePath = "src/frompythontojava/onlineshop/data/orderNextId.ser";
+        if (new File(filePath).exists()) {
+            nextId = (int) Serializator.deserializeObject(filePath);
+        }
     }
 }

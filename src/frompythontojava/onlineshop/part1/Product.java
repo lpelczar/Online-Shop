@@ -23,8 +23,10 @@ public class Product implements Serializable {
         this.name = name;
         this.defaultPrice = defaultPrice;
         this.productCategory = productCategory;
+        deserializeNextId();
         this.ID = nextId;
         nextId++;
+        serializeNextId();
         productList.add(this);
         serializeProductsList();
     }
@@ -133,12 +135,27 @@ public class Product implements Serializable {
         Serializator.serializeObject(filePath, productList);
     }
 
+    private void serializeNextId() {
+
+        String filePath = "src/frompythontojava/onlineshop/data/productNextId.ser";
+        Serializator.serializeObject(filePath, nextId);
+    }
+
     @SuppressWarnings("unchecked")
     private void deserializeProductsList() {
 
         String filePath = "src/frompythontojava/onlineshop/data/productslist.ser";
         if (new File(filePath).exists()) {
             productList = (ArrayList<Product>) Serializator.deserializeObject(filePath);
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    private void deserializeNextId() {
+
+        String filePath = "src/frompythontojava/onlineshop/data/productNextId.ser";
+        if (new File(filePath).exists()) {
+            nextId = (int) Serializator.deserializeObject(filePath);
         }
     }
 
