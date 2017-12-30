@@ -1,7 +1,9 @@
 package frompythontojava.onlineshop.part3;
 
+import frompythontojava.onlineshop.data.Serializator;
 import frompythontojava.onlineshop.part1.*;
 
+import java.io.File;
 import java.util.ArrayList;
 
 
@@ -14,6 +16,7 @@ public class ProductController {
     private ShopView view;
 
     private ProductController() {
+        deserializeProduct();
         this.categoryController = new CategoryController();
         this.categoriesContainer = new CategoriesContainer();
         this.view = new ShopView();
@@ -32,12 +35,14 @@ public class ProductController {
         if (this.product == null) {
             this.product = new Product(name, defaultPrice, category);
             view.displayProductAddedMessage();
+            serializeProduct();
         } else {
             if (this.product.containsProductWith(name, defaultPrice, category)) {
                 view.displayProductAlreadyExistsMessage();
             } else {
                 new Product(name, defaultPrice, category);
                 view.displayProductAddedMessage();
+                serializeProduct();
             }
         }
     }
@@ -234,5 +239,20 @@ public class ProductController {
             isAvailable = this.product.containsProductWithId(id);
         }
         return isAvailable;
+    }
+
+    private void serializeProduct() {
+
+        String filePath = "src/frompythontojava/onlineshop/data/product.ser";
+        Serializator.serializeObject(filePath, this.product);
+    }
+
+    @SuppressWarnings("unchecked")
+    private void deserializeProduct() {
+
+        String filePath = "src/frompythontojava/onlineshop/data/product.ser";
+        if (new File(filePath).exists()) {
+            this.product = (Product) Serializator.deserializeObject(filePath);
+        }
     }
 }

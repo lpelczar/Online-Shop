@@ -1,5 +1,8 @@
 package frompythontojava.onlineshop.part1;
 
+import frompythontojava.onlineshop.data.Serializator;
+
+import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -23,6 +26,7 @@ public class Product implements Serializable {
         this.ID = nextId;
         nextId++;
         productList.add(this);
+        serializeProductsList();
     }
 
     public String getName() {
@@ -55,13 +59,14 @@ public class Product implements Serializable {
 
 
     public ArrayList<Product> getAllProducts() {
+        deserializeProductsList();
         return productList;
     }
 
     public ArrayList<Product> getAllProductsBy(ProductCategory productCategory) {
 
         ArrayList<Product> matchingProducts = new ArrayList<>();
-        for (Product product: productList) {
+        for (Product product: getAllProducts()) {
             if (product.getProductCategory().equals(productCategory)) {
                 matchingProducts.add(product);
             }
@@ -72,7 +77,7 @@ public class Product implements Serializable {
     public ArrayList<Product> getAllProductsBy(String name) {
 
         ArrayList<Product> matchingProducts = new ArrayList<>();
-        for (Product product: productList) {
+        for (Product product: getAllProducts()) {
             if (product.getName().equals(name)) {
                 matchingProducts.add(product);
             }
@@ -82,7 +87,7 @@ public class Product implements Serializable {
 
     public boolean containsProductWith(String name, Float defaultPrice, ProductCategory category) {
 
-        for (Product product: productList) {
+        for (Product product: getAllProducts()) {
             if (product.getName().equals(name) && product.getDefaultPrice().equals(defaultPrice)
                     && product.getProductCategory().equals(category)) {
                 return true;
@@ -93,7 +98,7 @@ public class Product implements Serializable {
 
     public boolean containsProductWithName(String name) {
 
-        for (Product product: productList) {
+        for (Product product: getAllProducts()) {
             if (product.getName().equals(name)) {
                 return true;
             }
@@ -103,7 +108,7 @@ public class Product implements Serializable {
 
     public boolean containsProductWithId(int id) {
 
-        for (Product product: productList) {
+        for (Product product: getAllProducts()) {
             if (product.getID() == id) {
                 return true;
             }
@@ -114,12 +119,27 @@ public class Product implements Serializable {
     public Product getProductById(int id) {
 
         Product product = null;
-        for (Product p : productList) {
+        for (Product p : getAllProducts()) {
             if (p.getID() == id) {
                 product = p;
             }
         }
         return product;
+    }
+
+    private void serializeProductsList() {
+
+        String filePath = "src/frompythontojava/onlineshop/data/productslist.ser";
+        Serializator.serializeObject(filePath, productList);
+    }
+
+    @SuppressWarnings("unchecked")
+    private void deserializeProductsList() {
+
+        String filePath = "src/frompythontojava/onlineshop/data/productslist.ser";
+        if (new File(filePath).exists()) {
+            productList = (ArrayList<Product>) Serializator.deserializeObject(filePath);
+        }
     }
 
     public String toString() {
