@@ -183,6 +183,11 @@ public class ShopView {
         displayPressAnyKeyToContinueMessage();
     }
 
+    public void displayBasketIsEmptyMessage() {
+        System.out.println("\nYou can't pay for the order if your basket is empty!");
+        displayPressAnyKeyToContinueMessage();
+    }
+
     public void displayAllProductsWithGivenIdRemoved() {
         System.out.println("\nAll products with given ID has been removed from basket!");
         displayPressAnyKeyToContinueMessage();
