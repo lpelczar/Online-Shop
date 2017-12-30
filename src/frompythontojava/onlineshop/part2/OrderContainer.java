@@ -2,6 +2,7 @@ package frompythontojava.onlineshop.part2;
 
 import frompythontojava.onlineshop.data.Serializator;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class OrderContainer {
@@ -32,6 +33,9 @@ public class OrderContainer {
     private void deserializeOrders() {
 
         String filePath = "src/frompythontojava/onlineshop/data/orders.ser";
-        this.orders = (ArrayList<Orderable>) Serializator.deserializeObject(filePath);
+        if (new File(filePath).exists())
+        {
+            this.orders = (ArrayList<Orderable>) Serializator.deserializeObject(filePath);
+        }
     }
 }
