@@ -1,6 +1,7 @@
 package frompythontojava.onlineshop.part2;
 
-import java.io.*;
+import frompythontojava.onlineshop.data.Serializator;
+
 import java.util.ArrayList;
 
 public class OrderContainer {
@@ -23,37 +24,14 @@ public class OrderContainer {
 
     private void serializeOrders() {
 
-        try {
-            // write object to file
-            FileOutputStream fos = new FileOutputStream("src/frompythontojava/onlineshop/data/orders.ser");
-            ObjectOutputStream oos = new ObjectOutputStream(fos);
-            oos.writeObject(this.orders);
-            oos.close();
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        String filePath = "src/frompythontojava/onlineshop/data/orders.ser";
+        Serializator.serializeObject(filePath, this.orders);
     }
 
     @SuppressWarnings("unchecked")
     private void deserializeOrders() {
 
-        try {
-            // read object from file
-            FileInputStream fis = new FileInputStream("src/frompythontojava/onlineshop/data/orders.ser");
-            ObjectInputStream ois = new ObjectInputStream(fis);
-            this.orders = (ArrayList<Orderable>) ois.readObject();
-            ois.close();
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+        String filePath = "src/frompythontojava/onlineshop/data/orders.ser";
+        this.orders = (ArrayList<Orderable>) Serializator.deserializeObject(filePath);
     }
-
 }
