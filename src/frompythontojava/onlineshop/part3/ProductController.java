@@ -47,7 +47,7 @@ public class ProductController {
         }
     }
 
-    protected String getProductName() {
+    private String getProductName() {
 
         int maxNameLength = 15;
         String name = "";
@@ -71,7 +71,7 @@ public class ProductController {
         return products;
     }
 
-    public ArrayList<Product> getProductsFromCategory() {
+    private ArrayList<Product> getProductsFromCategory() {
 
         ProductCategory category = getCategoryByGivenId();
         ArrayList<Product> products = new ArrayList<>();
@@ -179,12 +179,12 @@ public class ProductController {
         return isAvailable;
     }
 
-    protected void showAllAvailableProducts() {
+    public void showAllAvailableProducts() {
 
         view.displayAllProducts(getAllProducts(), true);
     }
 
-    protected void showProductsFromSpecificCategory() {
+    public void showProductsFromSpecificCategory() {
 
         if (!this.categoryController.getAllCategories().isEmpty()) {
             view.displayAllCategories(this.categoryController.getAllCategories(), false);
@@ -195,7 +195,7 @@ public class ProductController {
         }
     }
 
-    protected void checkAvailabilityOfSpecificProduct() {
+    public void checkAvailabilityOfSpecificProduct() {
 
         String name = getProductName();
         boolean isAvailable = checkAvailabilityOfProductWithName(name);
@@ -206,7 +206,7 @@ public class ProductController {
         }
     }
 
-    protected Product getProductById() {
+    public Product getProductById() {
 
         boolean isCorrectInput = false;
         Product product = null;

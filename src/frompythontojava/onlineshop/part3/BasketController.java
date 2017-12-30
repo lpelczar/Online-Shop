@@ -22,7 +22,7 @@ public class BasketController {
         return basket;
     }
 
-    protected void addProductToBasket() {
+    public void addProductToBasket() {
         if (this.productController.getAllProducts().isEmpty()) {
             view.displayNoProductsMessage();
         } else {
@@ -33,7 +33,7 @@ public class BasketController {
         }
     }
 
-    protected void removeProductFromBasket() {
+    public void removeProductFromBasket() {
 
         if (this.basket.getProductList().isEmpty()) {
             view.displayCannotDeleteFromEmptyBasket();
