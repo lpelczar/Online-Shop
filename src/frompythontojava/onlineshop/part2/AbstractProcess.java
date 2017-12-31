@@ -10,7 +10,7 @@ public abstract class AbstractProcess {
     }
 
     public void stepBefore() {
-        System.out.println("Starting process!");
+        ConsoleProgressBar.run();
     }
 
     public void stepAfter() {
