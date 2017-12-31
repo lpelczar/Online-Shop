@@ -12,7 +12,7 @@ public class ShopView {
     public void displayMenu(Iterator basketIterator) {
 
         clearConsole();
-        System.out.println("Online shop v.1.3\n");
+        System.out.println("Online shop version-1.3\n");
         System.out.println("Basket: ");
         if (!basketIterator.hasNext()) {
             System.out.println("Your basket is empty!");
