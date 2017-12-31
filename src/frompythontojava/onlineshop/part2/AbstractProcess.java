@@ -1,5 +1,7 @@
 package frompythontojava.onlineshop.part2;
 
+import frompythontojava.onlineshop.logs.ProcessLogger;
+
 public abstract class AbstractProcess {
 
     public void process(Orderable item) {
@@ -14,7 +16,7 @@ public abstract class AbstractProcess {
     }
 
     public void stepAfter() {
-        System.out.println("Ending process!");
+        ProcessLogger.log("Order processed!");
     }
 
     protected abstract void action(Orderable item);
