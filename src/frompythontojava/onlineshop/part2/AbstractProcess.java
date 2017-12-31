@@ -1,5 +1,7 @@
 package frompythontojava.onlineshop.part2;
 
+import frompythontojava.onlineshop.logs.ProcessLogger;
+
 public abstract class AbstractProcess {
 
     public void process(Orderable item) {
@@ -10,11 +12,11 @@ public abstract class AbstractProcess {
     }
 
     public void stepBefore() {
-        System.out.println("Starting action!");
+        ConsoleProgressBar.run();
     }
 
     public void stepAfter() {
-        System.out.println("Ending action!");
+        ProcessLogger.log("Order processed!");
     }
 
     protected abstract void action(Orderable item);

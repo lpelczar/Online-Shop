@@ -1,21 +1,30 @@
 package frompythontojava.onlineshop.part1;
 
-public class ProductCategory {
+import frompythontojava.onlineshop.data.Serializator;
+
+import java.io.File;
+import java.io.Serializable;
+
+public class ProductCategory implements Serializable {
 
     private String name;
     private final int ID;
     private static int nextId = 1;
 
-    ProductCategory() {
-        this.name = "None";
-        this.ID = nextId;
-        nextId++;
+    public ProductCategory() {
+        this("None");
     }
 
-    ProductCategory(String name) {
+    public ProductCategory(String name) {
+        deserializeNextId();
         this.ID = nextId;
         nextId++;
+        serializeNextId();
         this.name = name;
+    }
+
+    public int getID() {
+        return ID;
     }
 
     public String getName() {
@@ -27,7 +36,22 @@ public class ProductCategory {
     }
 
     public String toString() {
-        return String.format("ID:%d,name:%s", this.ID, this.name);
+        return String.format("CategoryID:%d,CategoryName:%s", this.ID, this.name);
+    }
+
+    private void serializeNextId() {
+
+        String filePath = "src/frompythontojava/onlineshop/data/productCategoryNextId.ser";
+        Serializator.serializeObject(filePath, nextId);
+    }
+
+    @SuppressWarnings("unchecked")
+    private void deserializeNextId() {
+
+        String filePath = "src/frompythontojava/onlineshop/data/productCategoryNextId.ser";
+        if (new File(filePath).exists()) {
+            nextId = (int) Serializator.deserializeObject(filePath);
+        }
     }
 
 }
