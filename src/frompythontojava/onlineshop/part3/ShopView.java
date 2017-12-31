@@ -159,6 +159,14 @@ public class ShopView {
         displayPressAnyKeyToContinueMessage();
     }
 
+    public void displayCheckoutMessage() {
+        System.out.println("Checkout:");
+    }
+
+    public void displayPaymentMessage() {
+        System.out.println("Payment:");
+    }
+
     public void displayCategoryAlreadyExistsMessage(boolean getInput) {
 
         if (getInput) {

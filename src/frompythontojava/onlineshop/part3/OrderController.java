@@ -24,7 +24,9 @@ public class OrderController {
         } else {
             Order order = new Order();
             order.addBasket(basket);
+            view.displayCheckoutMessage();
             this.checkoutProcess.process(order);
+            view.displayPaymentMessage();
             this.paymentProcess.process(order);
             this.orderContainer.addOrder(order);
             view.displayOrderStatusChangedToPayed();
