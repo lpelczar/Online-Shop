@@ -41,15 +41,15 @@ Please use the following package package name: frompythontojava.onlineshop.part2
 
 ## User stories
 
-As a user I would like to create new product. 
-As a user I would like to create new product category or new featured product category.
-As a user I would like to add some products to the basket.
-As a user I would like to see all products in my basket. 
-As a user I would like to remove product from basket.
-As a user I would like to get list of all available products. 
-As a user I would like to get list of products from specific product category.
-As a user I would like to check availability of specific product. 
-As a user I would like to pay for my order.
+1. As a user I would like to create new product. 
+2. As a user I would like to create new product category or new featured product category.
+3. As a user I would like to add some products to the basket.
+4. As a user I would like to see all products in my basket. 
+5. As a user I would like to remove product from basket.
+6. As a user I would like to get list of all available products. 
+7. As a user I would like to get list of products from specific product category.
+8. As a user I would like to check availability of specific product. 
+9. As a user I would like to pay for my order.
 
 ## More info
 
