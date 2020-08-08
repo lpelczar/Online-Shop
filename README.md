@@ -6,7 +6,7 @@ In an Online Shop, there are Products, which you can browse. They are usually ca
 
 The following UML class diagram shows the structure and relationships of program. 
 
-![c1](http://i64.tinypic.com/23rmw0l.png)
+![c1](https://raw.github.com/lpelczar/Online-Shop/master/docs/UML-part1.png)
 
 Please use the following package package name: frompythontojava.onlineshop.part1
 - In the package, implement all the classes (Product, ProductCategory, FeaturedProductCategory, Basket, ProductIterator, Iterator) from the diagram.
@@ -26,7 +26,7 @@ In an Online Shop, when you finished adding your Products to the Basket , you wa
 
 Here's an UML class diagram, which shows the structure and relationships between the Order and the 2 processes: CheckoutProcess and PayProcess.
 
-![c2](http://i68.tinypic.com/2iifuw1.png)
+![c1](https://raw.github.com/lpelczar/Online-Shop/master/docs/UML-part2.png)
 
 Please use the following package package name: frompythontojava.onlineshop.part2. 
 - In the package, implement all the classes ( AbstractProcess, CheckoutProcess, PaymentProcess, Orderable, Order ) from the diagram.
